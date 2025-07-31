@@ -18,6 +18,7 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import Image from 'next/image';
 
 const WebsiteDevelopmentPage = () => {
   const technologies = [
@@ -302,10 +303,12 @@ const WebsiteDevelopmentPage = () => {
               >
                 <Card className="group cursor-pointer overflow-hidden">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={400}
+                      height={300}
                     />
                     <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/20 transition-colors duration-300"></div>
                   </div>

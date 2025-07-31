@@ -18,6 +18,7 @@ import {
   FaHeart
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 
 const BlogPostPage = ({ slug }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -161,10 +162,12 @@ const BlogPostPage = ({ slug }) => {
 
       {/* Hero Image */}
       <div className="relative h-96 overflow-hidden">
-        <img
+        <Image
           src={blogPost.image}
           alt={blogPost.title}
           className="w-full h-full object-cover"
+          width={1200}
+          height={600}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         
@@ -221,10 +224,12 @@ const BlogPostPage = ({ slug }) => {
               {/* Author Bio */}
               <div className="bg-gray-50 rounded-2xl p-6 mt-8">
                 <div className="flex items-start">
-                  <img
+                  <Image
                     src={blogPost.authorImage}
                     alt={blogPost.author}
                     className="w-16 h-16 rounded-full object-cover mr-4"
+                    width={60}
+                    height={60}
                   />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -298,7 +303,7 @@ const BlogPostPage = ({ slug }) => {
                 <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="font-semibold text-gray-900 mb-4">Quick Navigation</h3>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="text-blue-600 hover:text-blue-700">What's Changing</a></li>
+                    <li><a href="#" className="text-blue-600 hover:text-blue-700">What&apos;s Changing</a></li>
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">Business Impact</a></li>
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">Getting Started</a></li>
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">Looking Ahead</a></li>
@@ -326,10 +331,12 @@ const BlogPostPage = ({ slug }) => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover"
+                  width={400}
+                  height={300}
                 />
                 <div className="p-6">
                   <span className="text-sm text-blue-600 font-medium">{post.category}</span>

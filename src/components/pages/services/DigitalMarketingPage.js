@@ -380,7 +380,7 @@ const DigitalMarketingPage = () => {
               Success <span className="text-blue-600">Stories</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results we've achieved for our clients across different industries and marketing channels.
+              Real results we&apos;ve achieved for our clients across different industries and marketing channels.
             </p>
           </motion.div>
 

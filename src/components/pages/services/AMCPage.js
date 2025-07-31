@@ -231,7 +231,7 @@ const AMCPage = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              What's Included in Our <span className="text-blue-600">AMC Services</span>
+              What&apos;s Included in Our <span className="text-blue-600">AMC Services</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive maintenance services to keep your digital assets secure, fast, and always up-to-date

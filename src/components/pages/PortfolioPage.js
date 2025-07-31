@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import Image from 'next/image';
 
 const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -170,7 +171,7 @@ const PortfolioPage = () => {
               Our <span className="text-blue-400">Portfolio</span>
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Explore our collection of successful projects and see how we've helped 
+              Explore our collection of successful projects and see how we&apos;ve helped 
               businesses transform their digital presence and achieve their goals.
             </p>
           </motion.div>
@@ -245,10 +246,12 @@ const PortfolioPage = () => {
               >
                 <Card className="group cursor-pointer overflow-hidden h-full">
                   <div className="relative mb-6 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={400}
+                      height={300}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-4 right-4">
@@ -302,7 +305,7 @@ const PortfolioPage = () => {
                       <div className="bg-blue-50 p-3 rounded-lg">
                         <div className="flex items-start">
                           <FaStar className="w-4 h-4 text-yellow-400 mr-2 mt-0.5 flex-shrink-0" />
-                          <p className="text-sm text-gray-700 italic">"{project.testimonial}"</p>
+                          <p className="text-sm text-gray-700 italic">&quot;{project.testimonial}&quot;</p>
                         </div>
                       </div>
                     </div>
@@ -369,10 +372,12 @@ const PortfolioPage = () => {
               >
                 <Card className="group cursor-pointer overflow-hidden h-full hover:shadow-xl transition-shadow duration-300">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={400}
+                      height={300}
                     />
                     <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors duration-300"></div>
                     {project.featured && (

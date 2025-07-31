@@ -316,7 +316,7 @@ const AboutPage = () => {
               Our <span className="text-blue-600">Journey</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From a small startup to an industry leader, here's how we've grown and evolved over the years.
+              From a small startup to an industry leader, here&apos;s how we&apos;ve grown and evolved over the years.
             </p>
           </motion.div>
 

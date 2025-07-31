@@ -20,6 +20,7 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import Image from 'next/image';
 
 const EcommerceDevelopmentPage = () => {
   const platforms = [
@@ -431,7 +432,7 @@ const EcommerceDevelopmentPage = () => {
               Third-Party <span className="text-blue-600">Integrations</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We integrate with popular services to enhance your store's functionality and streamline operations.
+              We integrate with popular services to enhance your store&apos;s functionality and streamline operations.
             </p>
           </motion.div>
 
@@ -473,7 +474,7 @@ const EcommerceDevelopmentPage = () => {
               Successful <span className="text-blue-600">E-commerce</span> Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              E-commerce stores we've built that are driving significant revenue and growth for our clients.
+              E-commerce stores we&apos;ve built that are driving significant revenue and growth for our clients.
             </p>
           </motion.div>
 
@@ -486,10 +487,12 @@ const EcommerceDevelopmentPage = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover mb-4"
+                    width={400}
+                    height={300}
                   />
                   <div className="text-sm text-blue-600 font-medium mb-2">{project.category}</div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>

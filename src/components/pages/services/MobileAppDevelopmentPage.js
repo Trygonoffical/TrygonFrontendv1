@@ -19,6 +19,7 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import Image from 'next/image';
 
 const MobileAppDevelopmentPage = () => {
   const platforms = [
@@ -398,7 +399,7 @@ const MobileAppDevelopmentPage = () => {
               Featured <span className="text-blue-600">Mobile Apps</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Successful mobile applications we've developed for various industries and platforms.
+              Successful mobile applications we&apos;ve developed for various industries and platforms.
             </p>
           </motion.div>
 
@@ -411,10 +412,12 @@ const MobileAppDevelopmentPage = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="overflow-hidden">
-                  <img
+                  <Image
                     src={app.image}
                     alt={app.title}
                     className="w-full h-48 object-cover mb-4"
+                    width={400}
+                    height={300}
                   />
                   <div className="text-sm text-blue-600 font-medium mb-2">{app.category}</div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{app.title}</h3>

@@ -20,6 +20,7 @@ import {
 } from 'react-icons/fa';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
+import Image from 'next/image';
 
 const UIUXDesignPage = () => {
   const designTypes = [
@@ -295,7 +296,7 @@ const UIUXDesignPage = () => {
                   </div>
                   <p className="text-gray-600 mb-6">{service.description}</p>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">What&apos;s Included:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">
@@ -425,10 +426,12 @@ const UIUXDesignPage = () => {
               >
                 <Card className="overflow-hidden group cursor-pointer">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={400}
+                      height={300}
                     />
                   </div>
                   <div className="text-sm text-blue-600 font-medium mb-2">{project.category}</div>

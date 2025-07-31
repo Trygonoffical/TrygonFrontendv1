@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaArrowRight, FaPlay } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 
 const ProjectShowcaseSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -81,7 +82,7 @@ const ProjectShowcaseSection = () => {
             Featured <span className="text-blue-600">Projects</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our latest work and see how we've helped businesses transform their digital presence
+            Discover our latest work and see how we&apos;ve helped businesses transform their digital presence
           </p>
         </motion.div>
 

@@ -679,7 +679,7 @@ const CareersPage = () => {
               Ready to Join Our <span className="text-yellow-400">Journey</span>?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Whether you see your perfect role above or want to explore opportunities, we'd love to hear from you
+              Whether you see your perfect role above or want to explore opportunities, we&apos;d love to hear from you
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
