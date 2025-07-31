@@ -112,7 +112,7 @@ const AdminDashboard = () => {
       name: 'TechCorp Inc.',
       contact: 'John Smith',
       email: 'john@techcorp.com',
-      phone: '+1 (555) 123-4567',
+      phone: '+91 8851285655',
       projects: 3,
       totalValue: '$45,000',
       status: 'Active',

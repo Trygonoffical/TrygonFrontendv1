@@ -278,7 +278,7 @@ const HeroSection = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
+                            <Button variant="outline" size="lg" className="w-full sm:w-auto !border-white !text-white hover:!bg-white hover:!text-blue-900">  
                               View Portfolio
                             </Button>
                           </motion.div>

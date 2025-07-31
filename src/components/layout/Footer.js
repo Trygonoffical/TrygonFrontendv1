@@ -41,11 +41,11 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">Trygon</span>
             </div>
-            <p className="text-gray-300 text-sm">
-              Leading IT solutions provider delivering innovative web development, 
-              mobile apps, and digital marketing services to help businesses thrive 
-              in the digital age.
-            </p>
+                    <p className="text-gray-300 text-sm">
+          One of the top digital marketing companies in Delhi, delivering innovative 
+          UX/UI design, mobile app development, website development, SEO, and digital 
+          marketing services to help businesses establish their digital presence.
+        </p>
             <div className="flex space-x-4">
               <FaFacebook className="w-5 h-5 text-gray-400 hover:text-blue-500 cursor-pointer transition-colors" />
               <FaTwitter className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
@@ -96,16 +96,20 @@ const Footer = () => {
               <div className="flex items-center">
                 <HiLocationMarker className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">
-                  123 Tech Street, Silicon Valley, CA 94105
+                WP-501 D, Second floor, Shiv Market, Wazirpur, Wazirpur Village, Ashok Vihar, Delhi, 110052
                 </span>
               </div>
               <div className="flex items-center">
                 <HiPhone className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+1 (555) 123-4567</span>
+                <span className="text-gray-300 text-sm">+91 (885) 128-5655</span>
+              </div>
+              <div className="flex items-center">
+                <HiPhone className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">+91 (706) 500-9097</span>
               </div>
               <div className="flex items-center">
                 <HiMail className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">contact@trygon.com</span>
+                <span className="text-gray-300 text-sm">info@trygon.in</span>
               </div>
             </div>
           </div>

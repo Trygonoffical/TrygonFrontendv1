@@ -51,20 +51,26 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: FaPhone,
-      title: 'Phone',
-      content: '+1 (555) 123-4567',
+      title: 'Phone 1',
+      content: '+91 (885) 128-5655',
+      description: 'Call us during business hours'
+    },
+    {
+      icon: FaPhone,
+      title: 'Phone 2',
+      content: '+91 (706) 500-9097',
       description: 'Call us during business hours'
     },
     {
       icon: FaEnvelope,
       title: 'Email',
-      content: 'contact@trygon.com',
+      content: 'info@trygon.in',
       description: 'Send us an email anytime'
     },
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: '123 Tech Street, Silicon Valley, CA 94105',
+      content: 'WP-501 D, Second floor, Shiv Market, Wazirpur, Wazirpur Village, Ashok Vihar, Delhi, 110052',
       description: 'Visit our office'
     },
     {
@@ -326,7 +332,7 @@ const ContactPage = () => {
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
             <p className="text-xl text-gray-600">
-              Located in the heart of Silicon Valley, we're always happy to meet in person.
+              Located in Delhi, India. Contact us at +91 8851285655 to book your FREE consultation call today.
             </p>
           </motion.div>
 
@@ -334,9 +340,18 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center"
+            className="rounded-2xl overflow-hidden shadow-lg"
           >
-            <p className="text-gray-600">Interactive map would be integrated here</p>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.929763186026!2d77.1710780755551!3d28.691747575632395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d048eefffffff%3A0x43844f05939fd14!2sTRYGON%20TECHNOLOGIES!5e0!3m2!1sen!2sin!4v1753931270104!5m2!1sen!2sin" 
+              width="100%" 
+              height="400" 
+              style={{ border: 0 }}
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-96"
+            ></iframe>
           </motion.div>
         </div>
       </section>

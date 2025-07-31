@@ -106,6 +106,14 @@ const ServicesSection = () => {
             </motion.div>
           ))}
         </div>
+        <div className="text-center mt-12">
+          <Link href="/services">
+            <Button size="lg" className="group">
+              View All Services
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );

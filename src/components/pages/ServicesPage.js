@@ -6,10 +6,11 @@ import {
   FaCode, 
   FaMobile, 
   FaShoppingCart, 
-  FaSearch, 
+  FaChartLine, 
   FaCloud, 
   FaPalette, 
-  FaHandshake,
+  FaLightbulb,
+  FaShieldAlt,
   FaArrowRight,
   FaCheckCircle,
   FaRocket
@@ -65,7 +66,7 @@ const ServicesPage = () => {
       href: '/services/ecommerce-development'
     },
     {
-      icon: FaSearch,
+      icon: FaChartLine,
       title: 'Digital Marketing',
       description: 'SEO, social media marketing, and PPC campaigns to grow your online presence.',
       features: [
@@ -110,7 +111,7 @@ const ServicesPage = () => {
       href: '/services/ui-ux-design'
     },
     {
-      icon: FaHandshake,
+      icon: FaLightbulb,
       title: 'Software Consulting',
       description: 'Expert guidance on technology strategy, architecture, and implementation.',
       features: [
@@ -123,6 +124,21 @@ const ServicesPage = () => {
       technologies: ['Various', 'Custom', 'Enterprise', 'Scalable', 'Secure'],
       startingPrice: '$199/hr',
       href: '/services/software-consulting'
+    },
+    {
+      icon: FaShieldAlt,
+      title: 'AMC Services',
+      description: 'Annual Maintenance Contracts for websites, applications, and digital infrastructure.',
+      features: [
+        'Regular Updates & Patches',
+        'Security Monitoring',
+        'Performance Optimization',
+        'Backup & Recovery',
+        '24/7 Technical Support'
+      ],
+      technologies: ['Monitoring Tools', 'Security', 'Analytics', 'Automation', 'Support'],
+      startingPrice: '$199/month',
+      href: '/services/amc'
     }
   ];
 

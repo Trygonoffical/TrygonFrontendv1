@@ -16,7 +16,8 @@ import {
   FaChartLine,
   FaCloud,
   FaPalette,
-  FaLightbulb
+  FaLightbulb,
+  FaShieldAlt
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 
@@ -74,6 +75,13 @@ const Header = () => {
       icon: FaLightbulb,
       description: 'Expert technology consulting',
       color: 'text-yellow-600'
+    },
+    { 
+      name: 'AMC Services', 
+      href: '/services/amc',
+      icon: FaShieldAlt,
+      description: 'Annual Maintenance & Support Contracts',
+      color: 'text-orange-600'
     }
   ];
 

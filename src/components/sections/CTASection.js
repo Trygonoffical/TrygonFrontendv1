@@ -25,7 +25,7 @@ const CTASection = () => {
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's work together to build something amazing. Contact us today for a free consultation.
+            Contact us at +91 8851285655 to book your FREE consultation call today. Let's work together to build something amazing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
@@ -34,7 +34,7 @@ const CTASection = () => {
               </Button>
             </Link>
             <Link href="/portfolio">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto !border-white !text-white hover:!bg-white hover:!text-blue-900">
                 View Our Portfolio
               </Button>
             </Link>

@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 const AboutPage = () => {
   const values = [
@@ -101,40 +102,40 @@ const AboutPage = () => {
     {
       year: '2019',
       title: 'Company Founded',
-      description: 'Started with a vision to democratize technology for businesses of all sizes.'
+      description: 'Started in December 2019 with a vision to help businesses establish their digital presence.'
     },
     {
       year: '2020',
-      title: 'First Major Client',
-      description: 'Successfully delivered our first enterprise-level e-commerce platform.'
+      title: 'Digital Marketing Focus',
+      description: 'Specialized in comprehensive digital marketing solutions for small and medium businesses.'
     },
     {
       year: '2021',
-      title: 'Team Expansion',
-      description: 'Grew our team to 15+ talented professionals across various disciplines.'
+      title: 'Government Projects',
+      description: 'Successfully delivered our first government projects, establishing credibility in the public sector.'
     },
     {
       year: '2022',
-      title: 'Mobile Focus',
-      description: 'Launched our mobile app development division with cross-platform expertise.'
+      title: 'International Expansion',
+      description: 'Expanded globally, serving international clients and building a diverse portfolio.'
     },
     {
       year: '2023',
-      title: 'Cloud Leadership',
-      description: 'Became a recognized leader in cloud solutions and DevOps services.'
+      title: 'Certified Excellence',
+      description: 'Team achieved certifications in digital marketing and became recognized experts in Delhi.'
     },
     {
       year: '2024',
-      title: 'AI Integration',
-      description: 'Integrated AI and machine learning capabilities into our service offerings.'
+      title: 'Milestone Achievement',
+      description: 'Reached 1000+ domestic projects with an 89% success ratio, establishing market leadership.'
     }
   ];
 
   const achievements = [
-    { number: '500+', label: 'Projects Delivered' },
-    { number: '150+', label: 'Happy Clients' },
-    { number: '25+', label: 'Team Members' },
-    { number: '99%', label: 'Client Satisfaction' }
+    { number: '1000+', label: 'Domestic Projects' },
+    { number: '50+', label: 'International Projects' },
+    { number: '10+', label: 'Government Projects' },
+    { number: '89%', label: 'Success Ratio' }
   ];
 
   return (
@@ -150,11 +151,11 @@ const AboutPage = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              About <span className="text-blue-400">Trygon</span>
+              About <span className="text-blue-400">Trygon Technologies</span>
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed">
-              We're a passionate team of innovators, designers, and developers dedicated 
-              to transforming businesses through cutting-edge technology solutions.
+              One of the top digital marketing companies in Delhi. We're a small but passionate team 
+              of certified experts helping businesses establish their digital presence since December 2019.
             </p>
           </motion.div>
         </div>
@@ -177,9 +178,9 @@ const AboutPage = () => {
                   <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
                 </div>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To empower businesses of all sizes with innovative technology solutions that drive 
-                  growth, efficiency, and success. We believe that great technology should be accessible, 
-                  reliable, and transformative for every organization we serve.
+                  To find simple, effective, cost-efficient marketing strategies and techniques to help 
+                  small-scale businesses establish their digital presence. We help new business 
+                  entrepreneurs by compiling and analyzing their websites with timely, reasonable solutions.
                 </p>
               </Card>
             </motion.div>
@@ -197,9 +198,9 @@ const AboutPage = () => {
                   <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
                 </div>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To be the leading force in digital transformation, creating a world where every 
-                  business can leverage the full potential of technology to achieve extraordinary 
-                  results and make a positive impact on their communities.
+                  To establish ourselves as a leading digital marketing agency globally. We aim to be 
+                  the trusted partner for businesses worldwide, providing UX/UI design, mobile app 
+                  development, website development, SEO, SMO, PPC, and social media marketing services.
                 </p>
               </Card>
             </motion.div>
@@ -397,12 +398,12 @@ const AboutPage = () => {
               Let's discuss how our team can help you achieve your business goals with innovative technology solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
+              <Link href="/contact" className='bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 px-6 py-3 text-base flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2' size="lg">
                 Start Your Project <FaRocket className="ml-2" />
-              </Button>
-              <Button variant="outline" size="lg">
+              </Link>
+              <Link href="/portfolio" className='border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 px-6 py-3 text-base flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2' variant="outline" size="lg">
                 View Our Work
-              </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

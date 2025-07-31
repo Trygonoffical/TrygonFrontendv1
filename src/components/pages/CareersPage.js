@@ -483,7 +483,7 @@ const CareersPage = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                    <Input type="tel" placeholder="+1 (555) 123-4567" />
+                    <Input type="tel" placeholder="+91 8851285655" />
                   </div>
                 </div>
                 <div>
@@ -570,7 +570,7 @@ const CareersPage = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                  <Input type="tel" placeholder="+1 (555) 123-4567" />
+                  <Input type="tel" placeholder="+91 8851285655" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Role/Department</label>

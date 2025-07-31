@@ -198,9 +198,9 @@ const TermsOfServicePage = () => {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="space-y-2 text-gray-700">
-                <p><strong>Email:</strong> legal@trygon.com</p>
-                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                <p><strong>Address:</strong> 123 Tech Street, Silicon Valley, CA 94105</p>
+                <p><strong>Email:</strong> info@trygon.com</p>
+                <p><strong>Phone:</strong> +91 8851285655</p>
+                <p><strong>Address:</strong> Delhi, India</p>
               </div>
             </Card>
           </motion.div>

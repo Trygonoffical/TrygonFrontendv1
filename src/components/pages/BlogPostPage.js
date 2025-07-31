@@ -373,12 +373,12 @@ const BlogPostPage = ({ slug }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                <Button size="lg" className="!bg-white !text-blue-600 hover:!bg-gray-100">
                   Get Free Consultation
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button variant="outline" size="lg" className="!border-white !text-white hover:!bg-white hover:!text-blue-600">
                   View Our Work
                 </Button>
               </Link>
