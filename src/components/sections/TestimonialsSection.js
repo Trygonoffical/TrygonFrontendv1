@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
             What Our <span className="text-blue-600">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about our services.
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about our services.
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ const TestimonialsSection = () => {
                     <FaQuoteLeft className="text-4xl text-blue-600 mx-auto mb-6" />
 
                     <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed italic">
-                      "{testimonial.testimonial}"
+                      &quot;{testimonial.testimonial}&quot;
                     </p>
 
                     <div className="flex items-center justify-center mb-6">
@@ -106,9 +106,11 @@ const TestimonialsSection = () => {
                     </div>
 
                     <div className="flex items-center justify-center">
-                      <img
-                        src={testimonial.image}
+                                            <Image 
+                        src={testimonial.image} 
                         alt={testimonial.name}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 rounded-full object-cover mr-4"
                       />
                       <div className="text-left">

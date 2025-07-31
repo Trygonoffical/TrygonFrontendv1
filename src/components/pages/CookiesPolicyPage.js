@@ -106,14 +106,14 @@ const CookiesPolicyPage = () => {
     },
     {
       title: 'Cookie Consent',
-      content: `When you first visit our website, we'll ask for your consent to use certain types of cookies. You can:
+              content: `When you first visit our website, we&apos;ll ask for your consent to use certain types of cookies. You can:
       
       • Accept all cookies
       • Accept only essential cookies
       • Customize your preferences by cookie type
       • Change your preferences at any time
       
-      Essential cookies are necessary for basic website functionality and are always active. For all other cookie types, we'll only use them with your explicit consent.`
+      Essential cookies are necessary for basic website functionality and are always active. For all other cookie types, we&apos;ll only use them with your explicit consent.`
     }
   ];
 

@@ -607,7 +607,7 @@ const SoftwareConsultingPage = () => {
               Ready to Optimize Your Technology Strategy?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our consulting expertise can help you make better technology decisions and accelerate your success.
+              Let&apos;s discuss how our consulting expertise can help you make better technology decisions and accelerate your success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

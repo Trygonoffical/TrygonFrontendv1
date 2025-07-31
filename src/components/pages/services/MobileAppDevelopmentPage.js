@@ -537,7 +537,7 @@ const MobileAppDevelopmentPage = () => {
               Ready to Build Your Mobile App?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's turn your app idea into reality with our expert mobile development team.
+              Let&apos;s turn your app idea into reality with our expert mobile development team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

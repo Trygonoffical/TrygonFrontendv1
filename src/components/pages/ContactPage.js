@@ -135,7 +135,7 @@ const ContactPage = () => {
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully!</h2>
             <p className="text-gray-600 mb-6">
-              Thank you for reaching out. We'll get back to you within 24 hours to discuss your project.
+              Thank you for reaching out. We&apos;ll get back to you within 24 hours to discuss your project.
             </p>
             <Button onClick={() => setIsSubmitted(false)} className="w-full">
               Send Another Message
@@ -158,7 +158,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Let's Build Something <span className="text-blue-400">Amazing</span> Together
+              Let&apos;s Build Something <span className="text-blue-400">Amazing</span> Together
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
               Ready to transform your business with cutting-edge technology? 
@@ -181,7 +181,7 @@ const ContactPage = () => {
               <Card>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Start Your Project</h2>
                 <p className="text-gray-600 mb-8">
-                  Fill out the form below and we'll get back to you within 24 hours with a detailed proposal.
+                  Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed proposal.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -269,8 +269,8 @@ const ContactPage = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
                 <p className="text-gray-600 mb-8">
-                  We're here to help you succeed. Reach out through any of these channels 
-                  and let's discuss how we can bring your vision to life.
+                  We&apos;re here to help you succeed. Reach out through any of these channels 
+                  and let&apos;s discuss how we can bring your vision to life.
                 </p>
               </div>
 

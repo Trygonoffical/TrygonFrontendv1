@@ -187,7 +187,7 @@ const LoginPage = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                {isLogin ? "Don't have an account?" : "Already have an account?"}
+                                  {isLogin ? "Don&apos;t have an account?" : "Already have an account?"}
                 <button
                   onClick={() => setIsLogin(!isLogin)}
                   className="ml-1 font-medium text-blue-600 hover:text-blue-500"

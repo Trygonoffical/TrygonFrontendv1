@@ -360,7 +360,7 @@ const HeroSection = () => {
                               <FaSearch className="w-10 h-10 text-white" />
                             </motion.div>
                             <h3 className="text-2xl font-bold mb-2">Smart Search</h3>
-                            <p className="text-blue-100">Find exactly what you're looking for</p>
+                            <p className="text-blue-100">Find exactly what you&apos;re looking for</p>
                           </div>
                           
                           <form onSubmit={handleSearch} className="space-y-4">

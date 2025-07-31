@@ -25,7 +25,7 @@ const CTASection = () => {
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us at +91 8851285655 to book your FREE consultation call today. Let's work together to build something amazing.
+            Contact us at +91 8851285655 to book your FREE consultation call today. Let&apos;s work together to build something amazing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

@@ -424,7 +424,7 @@ const AMCPage = () => {
               Get Your Custom <span className="text-blue-600">AMC Quote</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Tell us about your requirements and we'll create a personalized maintenance plan for you
+              Tell us about your requirements and we&apos;ll create a personalized maintenance plan for you
             </p>
           </motion.div>
 

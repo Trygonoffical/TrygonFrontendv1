@@ -577,7 +577,7 @@ const EcommerceDevelopmentPage = () => {
               Ready to Launch Your Online Store?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's build an e-commerce platform that drives sales and grows your business online.
+              Let&apos;s build an e-commerce platform that drives sales and grows your business online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

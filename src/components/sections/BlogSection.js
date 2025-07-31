@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { FaArrowRight, FaEye, FaCalendarAlt } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
@@ -79,11 +80,13 @@ const BlogSection = () => {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
+                                  <Image 
+                    src={post.image} 
+                    alt={post.title} 
+                    width={600}
+                    height={300}
+                    className="w-full h-48 object-cover" 
+                  />
                 <div className="absolute top-4 left-4">
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {post.category}

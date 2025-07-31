@@ -43,7 +43,7 @@ const AboutPage = () => {
 
   const team = [
     {
-      name: 'Alex Thompson',
+      name: 'Vikas Gupta',
       role: 'CEO & Co-Founder',
       bio: 'Visionary leader with 10+ years in tech innovation and business development.',
       image: '/api/placeholder/300/300',
@@ -154,7 +154,7 @@ const AboutPage = () => {
               About <span className="text-blue-400">Trygon Technologies</span>
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed">
-              One of the top digital marketing companies in Delhi. We're a small but passionate team 
+              One of the top digital marketing companies in Delhi. We&apos;re a small but passionate team 
               of certified experts helping businesses establish their digital presence since December 2019.
             </p>
           </motion.div>
@@ -247,7 +247,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -301,7 +301,7 @@ const AboutPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Timeline Section */}
       <section className="py-20 bg-gray-50">
@@ -395,7 +395,7 @@ const AboutPage = () => {
               Ready to Work With Us?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our team can help you achieve your business goals with innovative technology solutions.
+              Let&apos;s discuss how our team can help you achieve your business goals with innovative technology solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className='bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 px-6 py-3 text-base flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2' size="lg">

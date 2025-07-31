@@ -253,7 +253,7 @@ const CareersPage = () => {
               Join Our <span className="text-blue-400">Amazing Team</span>
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Build the future of technology with us. We're looking for passionate individuals who want to make a difference.
+              Build the future of technology with us. We&apos;re looking for passionate individuals who want to make a difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">
@@ -511,7 +511,7 @@ const CareersPage = () => {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Cover Letter *</label>
                   <Textarea
-                    placeholder="Tell us why you're interested in this position and why you'd be a great fit for our team..."
+                    placeholder="Tell us why you&apos;re interested in this position and why you&apos;d be a great fit for our team..."
                     rows={6}
                     required
                   />
@@ -546,10 +546,10 @@ const CareersPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Don't See Your Perfect Role? <span className="text-blue-600">Apply Anyway!</span>
+              Don&apos;t See Your Perfect Role? <span className="text-blue-600">Apply Anyway!</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're always looking for talented individuals to join our team. Send us your resume and tell us how you'd like to contribute.
+              We&apos;re always looking for talented individuals to join our team. Send us your resume and tell us how you&apos;d like to contribute.
             </p>
           </motion.div>
 
@@ -627,7 +627,7 @@ const CareersPage = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Tell Us About Yourself *</label>
                 <Textarea
-                  placeholder="Tell us about your background, skills, and what kind of role you're looking for. What interests you about working at Trygon?"
+                  placeholder="Tell us about your background, skills, and what kind of role you&apos;re looking for. What interests you about working at Trygon?"
                   rows={6}
                   required
                 />
@@ -651,8 +651,8 @@ const CareersPage = () => {
                 <div className="flex items-start">
                   <FaHandshake className="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" />
                   <div className="text-sm text-blue-800">
-                    <p className="font-medium mb-1">We'll keep your information on file</p>
-                    <p>Even if we don't have an immediate opening, we'll reach out when a suitable position becomes available that matches your skills and interests.</p>
+                    <p className="font-medium mb-1">We&apos;ll keep your information on file</p>
+                    <p>Even if we don&apos;t have an immediate opening, we&apos;ll reach out when a suitable position becomes available that matches your skills and interests.</p>
                   </div>
                 </div>
               </div>

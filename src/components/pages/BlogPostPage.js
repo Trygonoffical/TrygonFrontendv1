@@ -69,7 +69,7 @@ const BlogPostPage = ({ slug }) => {
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Getting Started with AI in Web Development</h2>
         
         <p class="text-gray-700 leading-relaxed mb-4">
-          If you're looking to integrate AI into your web development process, here are some practical steps to get started:
+          If you&apos;re looking to integrate AI into your web development process, here are some practical steps to get started:
         </p>
         
         <ul class="list-disc pl-6 mb-6 text-gray-700">
@@ -87,7 +87,7 @@ const BlogPostPage = ({ slug }) => {
         </p>
         
         <p class="text-gray-700 leading-relaxed">
-          At Trygon, we're already incorporating AI technologies into our development processes to deliver cutting-edge solutions for our clients. Contact us to learn how AI can transform your web development projects.
+                        At Trygon, we&apos;re already incorporating AI technologies into our development processes to deliver cutting-edge solutions for our clients. Contact us to learn how AI can transform your web development projects.
         </p>
       </div>
     `,

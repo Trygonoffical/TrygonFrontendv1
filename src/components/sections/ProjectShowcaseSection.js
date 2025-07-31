@@ -138,9 +138,11 @@ const ProjectShowcaseSection = () => {
                       className="relative"
                     >
                       <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                        <img
+                        <Image
                           src={project.image}
                           alt={project.title}
+                          width={600}
+                          height={400}
                           className="w-full h-64 lg:h-80 object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>

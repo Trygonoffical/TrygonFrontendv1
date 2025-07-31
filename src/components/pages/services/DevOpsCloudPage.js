@@ -562,7 +562,7 @@ const DevOpsCloudPage = () => {
               Ready to Transform Your Infrastructure?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's modernize your development process and scale your applications with cloud-native solutions.
+              Let&apos;s modernize your development process and scale your applications with cloud-native solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
