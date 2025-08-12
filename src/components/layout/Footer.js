@@ -41,8 +41,7 @@ const Footer = () => {
                 <span className="text-white font-bold text-xl">T</span>
               </div>
               <span className="text-xl font-bold">Trygon</span> */}
-              <Image src="/assets/logo/logo-white2.svg" alt="Trygon Logo" width={150} height={150} />
-
+              <Image src="/assets/logo/logo-white2.svg" alt="Trygon Technologies" width={150} height={150} />
             </div>
                     <p className="text-gray-300 text-sm">
           One of the top digital marketing companies in Delhi, delivering innovative 

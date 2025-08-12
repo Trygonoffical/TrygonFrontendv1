@@ -126,7 +126,7 @@ const Header = () => {
                 <span className="text-white font-bold text-xl">T</span>
               </div> */}
               {/* <span className="text-xl font-bold text-gray-900">Trygon</span> */}
-              <Image src="/assets/logo/logo.svg" alt="Trygon Logo" width={150} height={150} />
+              <Image src="/assets/logo/logo.svg" alt="Trygon Technologies" width={150} height={150} />
 
             </Link>
           </div>
@@ -281,7 +281,7 @@ const Header = () => {
                         <span className="text-white font-bold text-xl">T</span>
                       </div>
                       <span className="text-xl font-bold text-gray-900">Trygon</span> */}
-                      <Image src="/assets/logo/logo.svg" alt="Trygon Logo" width={170} height={100} />
+                      <Image src="/assets/logo/logo.svg" alt="Trygon Technologies" width={170} height={100} />
 
                     </div>
                     <button
