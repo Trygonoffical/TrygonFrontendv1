@@ -20,6 +20,7 @@ import {
   FaShieldAlt
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,10 +122,12 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-2">
+              {/* <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-2">
                 <span className="text-white font-bold text-xl">T</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">Trygon</span>
+              </div> */}
+              {/* <span className="text-xl font-bold text-gray-900">Trygon</span> */}
+              <Image src="/assets/logo/logo.svg" alt="Trygon Logo" width={150} height={150} />
+
             </Link>
           </div>
 
@@ -274,10 +277,12 @@ const Header = () => {
                   {/* Mobile Header */}
                   <div className="flex items-center justify-between p-6 border-b border-gray-100">
                     <div className="flex items-center">
-                      <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                      {/* <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
                         <span className="text-white font-bold text-xl">T</span>
                       </div>
-                      <span className="text-xl font-bold text-gray-900">Trygon</span>
+                      <span className="text-xl font-bold text-gray-900">Trygon</span> */}
+                      <Image src="/assets/logo/logo.svg" alt="Trygon Logo" width={170} height={100} />
+
                     </div>
                     <button
                       onClick={() => setIsMenuOpen(false)}
