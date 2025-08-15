@@ -44,6 +44,62 @@ const HeroSection = () => {
     setIsClient(true);
   }, []);
 
+  const heroSlides = [
+    {
+      id: 1,
+      title: "Transform Your Business with",
+      subtitle: "Expert IT Solutions",
+      typewriterWords: ["Innovation", "Excellence", "Growth", "Success"],
+      description: "From web development to digital marketing, we deliver innovative technology solutions that drive growth and success.",
+      type: "contact",
+      ctaText: "Get Free Quote",
+      features: ["Free Consultation", "24/7 Support", "Expert Team"]
+    },
+    {
+      id: 2,
+      title: "Build Stunning Websites",
+      subtitle: "That Converts ", // Visitors to Customers
+      typewriterWords: ["Modern", "Responsive", "Fast", "Optimized"],
+      description: "Custom web development with modern technologies, responsive design, and optimized performance that drives results.",
+      type: "website",
+      ctaText: "View Web Projects",
+      features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
+      stats: { projects: "200+", satisfaction: "99%", speed: "3x Faster" }
+    },
+    {
+      id: 3,
+      title: "Mobile Apps That",
+      subtitle: "Users Love & Businesses Need",
+      typewriterWords: ["Native", "Cross-Platform", "Powerful", "Intuitive"],
+      description: "Native and cross-platform mobile applications with stunning UI/UX and powerful functionality.",
+      type: "mobile",
+      ctaText: "View App Portfolio",
+      features: ["iOS & Android", "Native Performance", "App Store Ready"],
+      stats: { downloads: "1M+", rating: "4.9★", apps: "50+" }
+    },
+    {
+      id: 4,
+      title: "Complete Digital",
+      subtitle: "Transformation Solutions",
+      typewriterWords: ["Scalable", "Secure", "Cloud-Ready", "Future-Proof"],
+      description: "End-to-end digital services including e-commerce, DevOps, cloud infrastructure, and digital marketing.",
+      type: "services",
+      ctaText: "Explore All Services",
+      features: ["Full Stack", "Cloud Ready", "Scalable Solutions"],
+      stats: { clients: "500+", countries: "25+", years: "5+" }
+    },
+    // {
+    //   id: 5,
+    //   title: "Find Everything You Need",
+    //   subtitle: "Search Our Services & Resources",
+    //   typewriterWords: ["Services", "Portfolio", "Blogs", "Solutions"],
+    //   description: "Quickly discover our services, browse our portfolio, read our latest blogs, or find any information you need.",
+    //   type: "search",
+    //   ctaText: "Start Searching",
+    //   features: ["Smart Search", "Instant Results", "All Categories"]
+    // }
+  ];
+  
   // Auto-scroll for hero slides with pause on hover
   useEffect(() => {
     if (!isClient || isPaused) return;
@@ -142,61 +198,7 @@ const HeroSection = () => {
     }
   };
 
-  const heroSlides = [
-    {
-      id: 1,
-      title: "Transform Your Business with",
-      subtitle: "Expert IT Solutions",
-      typewriterWords: ["Innovation", "Excellence", "Growth", "Success"],
-      description: "From web development to digital marketing, we deliver innovative technology solutions that drive growth and success.",
-      type: "contact",
-      ctaText: "Get Free Quote",
-      features: ["Free Consultation", "24/7 Support", "Expert Team"]
-    },
-    {
-      id: 2,
-      title: "Build Stunning Websites",
-      subtitle: "That Converts ", // Visitors to Customers
-      typewriterWords: ["Modern", "Responsive", "Fast", "Optimized"],
-      description: "Custom web development with modern technologies, responsive design, and optimized performance that drives results.",
-      type: "website",
-      ctaText: "View Web Projects",
-      features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
-      stats: { projects: "200+", satisfaction: "99%", speed: "3x Faster" }
-    },
-    {
-      id: 3,
-      title: "Mobile Apps That",
-      subtitle: "Users Love & Businesses Need",
-      typewriterWords: ["Native", "Cross-Platform", "Powerful", "Intuitive"],
-      description: "Native and cross-platform mobile applications with stunning UI/UX and powerful functionality.",
-      type: "mobile",
-      ctaText: "View App Portfolio",
-      features: ["iOS & Android", "Native Performance", "App Store Ready"],
-      stats: { downloads: "1M+", rating: "4.9★", apps: "50+" }
-    },
-    {
-      id: 4,
-      title: "Complete Digital",
-      subtitle: "Transformation Solutions",
-      typewriterWords: ["Scalable", "Secure", "Cloud-Ready", "Future-Proof"],
-      description: "End-to-end digital services including e-commerce, DevOps, cloud infrastructure, and digital marketing.",
-      type: "services",
-      ctaText: "Explore All Services",
-      features: ["Full Stack", "Cloud Ready", "Scalable Solutions"],
-      stats: { clients: "500+", countries: "25+", years: "5+" }
-    },
-    // {
-    //   id: 5,
-    //   title: "Find Everything You Need",
-    //   subtitle: "Search Our Services & Resources",
-    //   typewriterWords: ["Services", "Portfolio", "Blogs", "Solutions"],
-    //   description: "Quickly discover our services, browse our portfolio, read our latest blogs, or find any information you need.",
-    //   type: "search",
-    //   ctaText: "Start Searching",
-    //   features: ["Smart Search", "Instant Results", "All Categories"]
-    // }
-  ];
+ 
 
   const searchCategories = [
     { value: 'all', label: 'All Categories' },
