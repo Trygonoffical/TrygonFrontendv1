@@ -20,7 +20,7 @@ const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'All Projects', count: 10 },
+    { id: 'all', name: 'All Projects', count: 12 },
     { id: 'website', name: 'Websites', count: 8 },
     { id: 'mobile', name: 'Mobile Apps', count: 2 },
     { id: 'ecommerce', name: 'E-commerce', count: 2 },
@@ -178,6 +178,36 @@ const PortfolioPage = () => {
       featured: false,
       testimonial: 'Increased our team productivity by 40%.',
       liveUrl: 'https://play.google.com/store/apps/details?id=com.homofix.homo_fix&hl=en_IN',
+      githubUrl: '#'
+    },
+    {
+      id: 11,
+      title: 'Nurturing Serenity Educations',
+      categories: ['website'],
+      description: 'Nurturing Serenity Educations dedicated to fostering the holistic development of individuals, starting from a young age.',
+      image: '/assets/projects/feature/dr.png',
+      technologies: ['Wordpress', 'php', 'MySQL'],
+      client: 'Nurturing Serenity Educations',
+      duration: '1 week',
+      year: '2025',
+      featured: false,
+      testimonial: 'Nurturing Serenity Educations is a platform that helps individuals grow and succeed.',
+      liveUrl: 'https://nurturingserenityeducations.com/',
+      githubUrl: '#'
+    },
+    {
+      id: 12,
+      title: 'Tour and Travel',
+      categories: ['website'],
+      description: 'Tour and Travel is a platform that helps individuals grow and succeed.',
+      image: '/assets/projects/feature/travel.png',
+      technologies: ['Laravel', 'php', 'MySQL'],
+      client: 'Tour and Travel',
+      duration: '1 week',
+      year: '2025',
+      featured: false,
+      testimonial: 'Tour and Travel is a platform that helps individuals grow and succeed.',
+      liveUrl: 'https://traveloserv.com/',
       githubUrl: '#'
     }
   ];
