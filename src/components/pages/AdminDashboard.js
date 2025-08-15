@@ -24,6 +24,7 @@ import {
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 import { Input, Select } from '../ui/Form';
+import Image from 'next/image';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -203,10 +204,12 @@ const AdminDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <img
+              <Image
                 src={adminData.avatar}
                 alt={adminData.name}
                 className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
               />
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>

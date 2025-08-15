@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createClient } from '@supabase/supabase-js';
 import {
   FaCode,
   FaMobile,
@@ -24,21 +23,7 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import { SimpleInput as Input, SimpleTextarea as Textarea, SimpleSelect as Select } from '@/components/ui/Form';
-
-// Validate environment variables
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-if (!supabaseUrl) {
-  console.error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
-}
-
-if (!supabaseKey) {
-  console.error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
-}
-
-// Only create Supabase client if both variables are present
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+import supabase from '@/lib/supabase';
 
 const HeroSection = () => {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
@@ -58,6 +43,15 @@ const HeroSection = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Auto-scroll for hero slides with pause on hover
+  useEffect(() => {
+    if (!isClient || isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [isClient, heroSlides.length, isPaused]);
 
   const handleContactInputChange = (e) => {
     setContactFormData({
@@ -212,15 +206,6 @@ const HeroSection = () => {
     { value: 'team', label: 'Team' },
     { value: 'contact', label: 'Contact Info' }
   ];
-
-  // Auto-scroll for hero slides with pause on hover
-  useEffect(() => {
-    if (!isClient || isPaused) return;
-    const interval = setInterval(() => {
-      setCurrentHeroSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [isClient, heroSlides.length, isPaused]);
 
   const handleSearch = (e) => {
     e.preventDefault();

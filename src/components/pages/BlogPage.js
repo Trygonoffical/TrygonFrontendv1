@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createClient } from '@supabase/supabase-js';
 import { 
   FaCalendarAlt, 
   FaUser, 
@@ -24,21 +23,7 @@ import {
   searchPosts, 
   getCategories 
 } from '@/data/blogData';
-
-// Validate environment variables
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-if (!supabaseUrl) {
-  console.error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
-}
-
-if (!supabaseKey) {
-  console.error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
-}
-
-// Only create Supabase client if both variables are present
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+import supabase from '@/lib/supabase';
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');

@@ -19,6 +19,7 @@ import {
 } from 'react-icons/fa';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import Image from 'next/image';
 
 const CustomerDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -171,10 +172,12 @@ const CustomerDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <img
+              <Image
                 src={userData.avatar}
                 alt={userData.name}
                 className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
               />
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Welcome back, {userData.name}</h1>
