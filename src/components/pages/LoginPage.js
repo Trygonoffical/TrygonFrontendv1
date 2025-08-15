@@ -16,6 +16,7 @@ import {
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 import { Input } from '../ui/Form';
+import Image from 'next/image';
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -74,10 +75,12 @@ const LoginPage = () => {
         >
           <div className="text-center mb-8">
             <Link href="/" className="flex items-center justify-center mb-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+              {/* <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-2xl">T</span>
               </div>
-              <span className="text-2xl font-bold text-gray-900">Trygon</span>
+              <span className="text-2xl font-bold text-gray-900">Trygon</span> */}
+              <Image src="/assets/logo/logo.svg" alt="Trygon Technologies" width={170} height={150} />
+
             </Link>
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               {isLogin ? 'Welcome back!' : 'Create your account'}
@@ -187,7 +190,7 @@ const LoginPage = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                                  {isLogin ? "Don&apos;t have an account?" : "Already have an account?"}
+                {isLogin ? "Don't have an account?" : "Already have an account?"}
                 <button
                   onClick={() => setIsLogin(!isLogin)}
                   className="ml-1 font-medium text-blue-600 hover:text-blue-500"

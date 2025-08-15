@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { 
   FaPhone, 
   FaEnvelope, 
@@ -10,12 +12,28 @@ import {
   FaFacebook,
   FaTwitter,
   FaLinkedin,
-  FaInstagram,
-  FaCheckCircle
+  FaInstagram
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { Input, Textarea, Select } from '@/components/ui/Form';
+import { createClient } from '@supabase/supabase-js'
+
+// Validate environment variables
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+if (!supabaseUrl) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
+}
+
+if (!supabaseKey) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
+}
+
+// Only create Supabase client if both variables are present
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +46,6 @@ const ContactPage = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -41,11 +58,88 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Check if Supabase is properly configured
+      if (!supabase) {
+        console.error('Supabase is not properly configured. Please check your environment variables.');
+        toast.error('Configuration error. Please contact support.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Save to Supabase with correct column names
+      const { data, error } = await supabase
+        .from('quotation_requests')
+        .insert([
+          {
+            fullName: formData.name,
+            email: formData.email,
+            phoneNumber: formData.phone,
+            companyName: formData.company,
+            service: formData.service,
+            projectBudget: formData.budget,
+            projectDescription: formData.message,
+            created_at: new Date().toISOString()
+          }
+        ])
+        .select();
+
+      if (error) {
+        console.error('Error saving form data:', error);
+        toast.error('There was an error submitting your form. Please try again.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log('Form data saved successfully:', data);
+      toast.success('Message sent successfully! We\'ll get back to you within 24 hours.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 2000);
+      
+      // Reset form data
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        budget: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast.error('There was an unexpected error. Please try again.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -120,31 +214,7 @@ const ContactPage = () => {
     }
   ];
 
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-md mx-auto text-center"
-        >
-          <Card>
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <FaCheckCircle className="w-8 h-8 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully!</h2>
-            <p className="text-gray-600 mb-6">
-              Thank you for reaching out. We&apos;ll get back to you within 24 hours to discuss your project.
-            </p>
-            <Button onClick={() => setIsSubmitted(false)} className="w-full">
-              Send Another Message
-            </Button>
-          </Card>
-        </motion.div>
-      </div>
-    );
-  }
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -302,16 +372,16 @@ const ContactPage = () => {
               <Card>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                  <a href="https://www.facebook.com/Trygon.in" className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                     <FaFacebook className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                  <a href="https://twitter.com/trygon_web" className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
                     <FaTwitter className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                  <a href="https://in.linkedin.com/company/trygon-technologies" className="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
                     <FaLinkedin className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
+                  <a href="https://www.instagram.com/trygon_in/" className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
                     <FaInstagram className="w-5 h-5" />
                   </a>
                 </div>
@@ -390,6 +460,9 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+      
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 };
