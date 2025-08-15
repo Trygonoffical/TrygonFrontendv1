@@ -63,7 +63,7 @@ const PortfolioPage = () => {
     {
       id: 3,
       title: 'Just Start',
-      categories: ['website', 'startup'],
+      categories: ['website', 'ai'],
       description: 'Just Start is a platform that helps startups grow and succeed.',
       image: '/assets/projects/feature/juststart.png',
       technologies: ['Laravel', 'MySQL'],
