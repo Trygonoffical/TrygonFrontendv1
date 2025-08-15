@@ -16,7 +16,3 @@ if (!supabaseKey) {
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
 
 export default supabase
-
-
-
-{/* <script id="pixel-chaty" async="true" src="https://cdn.chaty.app/pixel.js?id=0jyNhP8V"></script> */}
