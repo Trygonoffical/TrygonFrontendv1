@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { createClient } from '@supabase/supabase-js';
 import { 
   FaCalendarAlt, 
   FaUser, 
@@ -22,10 +25,27 @@ import {
   getCategories 
 } from '@/data/blogData';
 
+// Validate environment variables
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+if (!supabaseUrl) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
+}
+
+if (!supabaseKey) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
+}
+
+// Only create Supabase client if both variables are present
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
+
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const categories = [
     { value: 'all', label: 'All Categories' },
@@ -46,6 +66,125 @@ const BlogPage = () => {
 
     setFilteredPosts(filtered);
   }, [searchTerm, selectedCategory]);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      toast.error('Please enter a valid email address', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+
+    setIsSubscribing(true);
+    
+    try {
+      // Check if Supabase is properly configured
+      if (!supabase) {
+        console.error('Supabase is not properly configured. Please check your environment variables.');
+        toast.error('Configuration error. Please contact support.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubscribing(false);
+        return;
+      }
+
+      // Check if email already exists
+      const { data: existingSubscriber, error: checkError } = await supabase
+        .from('subscribe')
+        .select('email')
+        .eq('email', email)
+        .single();
+
+      if (checkError && checkError.code !== 'PGRST116') {
+        console.error('Error checking existing subscriber:', checkError);
+        toast.error('There was an error processing your subscription. Please try again.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubscribing(false);
+        return;
+      }
+
+      if (existingSubscriber) {
+        toast.info('You are already subscribed to our newsletter!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubscribing(false);
+        return;
+      }
+
+      // Save to Supabase
+      const { data, error } = await supabase
+        .from('subscribe')
+        .insert([
+          {
+            email: email,
+            created_at: new Date().toISOString()
+          }
+        ])
+        .select();
+
+      if (error) {
+        console.error('Error saving subscription:', error);
+        toast.error('There was an error subscribing you. Please try again.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIsSubscribing(false);
+        return;
+      }
+
+      console.log('Subscription saved successfully:', data);
+      toast.success('Successfully subscribed to our newsletter! We\'ll keep you updated with the latest tech insights.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      
+      setIsSubscribing(false);
+      setEmail(''); // Reset form
+      
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast.error('There was an unexpected error. Please try again.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      setIsSubscribing(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 ">
@@ -217,7 +356,7 @@ const BlogPage = () => {
           )}
 
           {/* Load More Button */}
-          {filteredPosts.length > 6 && (
+          {filteredPosts.length > 0 && (
             <div className="text-center mt-12">
               <Button size="lg" className="group">
                 Load More Articles
@@ -243,18 +382,29 @@ const BlogPage = () => {
             <p className="text-xl text-gray-300 mb-8">
               Get weekly updates on technology trends, development tips, and industry insights
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Input
+                type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-white/20 text-white placeholder-white/70"
+                required
               />
-              <Button className="whitespace-nowrap">
-                Subscribe Now
+              <Button 
+                type="submit" 
+                className="whitespace-nowrap"
+                loading={isSubscribing}
+              >
+                {isSubscribing ? 'Subscribing...' : 'Subscribe Now'}
               </Button>
-            </div>
+            </form>
           </motion.div>
         </div>
       </section>
+
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 };
