@@ -18,43 +18,43 @@ const ProjectShowcaseSection = () => {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Revolution",
-      category: "E-commerce Platform",
-      image: "/api/placeholder/600/400",
-      description: "Complete e-commerce solution with AI-powered recommendations",
-      tech: ["React", "Node.js", "MongoDB", "AI/ML"],
-      results: "+300% Sales Growth",
-      link: "/portfolio/ecommerce-revolution"
+      title: "Homofix Company",
+      category: "Home Cleaning Services",
+      image: "/assets/projects/feature/homofix.png",
+      description: "Complete Home Cleaning Services with AI-powered recommendations and Automation",
+      tech: ["Next.js", "AWS", "postgres", "Python"],
+      results: "100% Sales Growth",
+      link: "https://www.homofixcompany.com/"
     },
     {
       id: 2,
-      title: "FinTech Mobile App",
-      category: "Mobile Application",
-      image: "/api/placeholder/600/400",
-      description: "Secure banking app with biometric authentication",
-      tech: ["React Native", "Blockchain", "AWS"],
+      title: "Herbal Power India",
+      category: "E-commerce and MLM Web App",
+      image: "/assets/projects/feature/herbalpower.png",
+      description: "Herbal Power Marketing Private Limited exists beyond being a standard health supplement business",
+      tech: ["Next.js", "Python", "VPS"],
       results: "1M+ Downloads",
-      link: "/portfolio/fintech-app"
+      link: "https://herbalpowerindia.com/"
     },
     {
       id: 3,
-      title: "Healthcare Dashboard",
-      category: "Web Application",
-      image: "/api/placeholder/600/400",
-      description: "Real-time patient monitoring and analytics platform",
-      tech: ["Vue.js", "Python", "PostgreSQL"],
+      title: "Just Start",
+      category: "Startup Ecosystem Site",
+      image: "/assets/projects/feature/juststart.png",
+      description: "Just Start is a platform that helps startups grow and succeed",
+      tech: ["Laravel", "MySQL"],
       results: "50+ Hospitals",
-      link: "/portfolio/healthcare-dashboard"
+      link: "https://juststart.co.in"
     },
     {
       id: 4,
-      title: "EdTech Platform",
-      category: "Educational Technology",
-      image: "/api/placeholder/600/400",
-      description: "Interactive learning platform with virtual classrooms",
+      title: "Beautify Professionals",
+      category: "E-commerce Web App",
+      image: "/assets/projects/feature/silkenauraprofessionals.png",
+      description: "Beautify Professionals is a platform that helps beauticians and stylists grow and succeed",
       tech: ["Angular", "Laravel", "MySQL"],
-      results: "100K+ Students",
-      link: "/portfolio/edtech-platform"
+      results: "10+ Products",
+      link: "https://silkenauraprofessionals.com/"
     }
   ];
 
@@ -123,7 +123,7 @@ const ProjectShowcaseSection = () => {
                         <div className="text-2xl font-bold text-green-600">
                           {project.results}
                         </div>
-                        <Link href={project.link}>
+                        <Link href={project.link} target="_blank">
                           <Button className="group">
                             View Project
                             <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
