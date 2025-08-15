@@ -2,6 +2,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import MicrosoftClarity from "@/components/metrics/MicrosoftClarity";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +26,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-N9WX626M" />
+      <GoogleAnalytics gaId="G-RVLG9FXZV1" />
+      <MicrosoftClarity />
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         <main className="pt-16">
