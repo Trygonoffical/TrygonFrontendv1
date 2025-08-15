@@ -43,156 +43,156 @@ const CareersPage = () => {
   ];
 
   const jobOpenings = [
-    {
-      id: 1,
-      title: 'Senior Full Stack Developer',
-      department: 'Engineering',
-      location: 'Remote',
-      type: 'Full-time',
-      experience: '4+ years',
-      salary: '$80,000 - $120,000',
-      description: 'We are looking for an experienced Full Stack Developer to join our growing team. You will work on cutting-edge projects using React, Node.js, and modern web technologies.',
-      requirements: [
-        '4+ years of experience with React and Node.js',
-        'Strong knowledge of JavaScript, TypeScript, and modern web technologies',
-        'Experience with databases (MongoDB, PostgreSQL)',
-        'Familiarity with cloud platforms (AWS, Google Cloud)',
-        'Excellent problem-solving and communication skills'
-      ],
-      responsibilities: [
-        'Develop and maintain web applications using React and Node.js',
-        'Collaborate with cross-functional teams to deliver high-quality software',
-        'Write clean, maintainable, and well-documented code',
-        'Participate in code reviews and technical discussions',
-        'Stay up-to-date with the latest web development trends'
-      ],
-      posted: '2024-01-15'
-    },
-    {
-      id: 2,
-      title: 'UI/UX Designer',
-      department: 'Design',
-      location: 'New York',
-      type: 'Full-time',
-      experience: '3+ years',
-      salary: '$65,000 - $90,000',
-      description: 'Join our design team to create beautiful and intuitive user experiences for web and mobile applications.',
-      requirements: [
-        '3+ years of experience in UI/UX design',
-        'Proficiency in Figma, Sketch, and Adobe Creative Suite',
-        'Strong portfolio showcasing web and mobile designs',
-        'Understanding of responsive design principles',
-        'Experience with prototyping and user testing'
-      ],
-      responsibilities: [
-        'Design user interfaces for web and mobile applications',
-        'Create wireframes, prototypes, and high-fidelity designs',
-        'Conduct user research and usability testing',
-        'Collaborate with developers to ensure design implementation',
-        'Maintain and evolve design systems'
-      ],
-      posted: '2024-01-12'
-    },
-    {
-      id: 3,
-      title: 'Digital Marketing Specialist',
-      department: 'Marketing',
-      location: 'Los Angeles',
-      type: 'Full-time',
-      experience: '2+ years',
-      salary: '$50,000 - $70,000',
-      description: 'We are seeking a creative Digital Marketing Specialist to develop and execute marketing campaigns across various digital channels.',
-      requirements: [
-        '2+ years of experience in digital marketing',
-        'Knowledge of SEO, SEM, and social media marketing',
-        'Experience with Google Analytics and marketing tools',
-        'Strong analytical and communication skills',
-        'Bachelor\'s degree in Marketing or related field'
-      ],
-      responsibilities: [
-        'Develop and execute digital marketing campaigns',
-        'Manage social media accounts and content creation',
-        'Analyze campaign performance and optimize strategies',
-        'Collaborate with design team for marketing materials',
-        'Stay current with digital marketing trends'
-      ],
-      posted: '2024-01-10'
-    },
-    {
-      id: 4,
-      title: 'DevOps Engineer',
-      department: 'Engineering',
-      location: 'Remote',
-      type: 'Full-time',
-      experience: '3+ years',
-      salary: '$75,000 - $110,000',
-      description: 'Looking for a DevOps Engineer to help build and maintain our cloud infrastructure and deployment pipelines.',
-      requirements: [
-        '3+ years of experience in DevOps or infrastructure',
-        'Strong knowledge of AWS, Docker, and Kubernetes',
-        'Experience with CI/CD pipelines and automation',
-        'Proficiency in scripting languages (Python, Bash)',
-        'Understanding of monitoring and logging systems'
-      ],
-      responsibilities: [
-        'Design and maintain cloud infrastructure',
-        'Implement and optimize CI/CD pipelines',
-        'Monitor system performance and reliability',
-        'Automate deployment and scaling processes',
-        'Ensure security and compliance standards'
-      ],
-      posted: '2024-01-08'
-    },
-    {
-      id: 5,
-      title: 'Junior Frontend Developer',
-      department: 'Engineering',
-      location: 'Remote',
-      type: 'Full-time',
-      experience: '1+ years',
-      salary: '$45,000 - $65,000',
-      description: 'Perfect opportunity for a junior developer to grow their skills in a supportive environment with mentorship from senior developers.',
-      requirements: [
-        '1+ years of experience with JavaScript and React',
-        'Understanding of HTML, CSS, and responsive design',
-        'Familiarity with Git and version control',
-        'Basic knowledge of web performance optimization',
-        'Eagerness to learn and grow'
-      ],
-      responsibilities: [
-        'Develop user interfaces using React and modern CSS',
-        'Collaborate with senior developers on feature development',
-        'Write and maintain unit tests',
-        'Participate in code reviews and team meetings',
-        'Learn and apply best practices in web development'
-      ],
-      posted: '2024-01-05'
-    },
-    {
-      id: 6,
-      title: 'Project Manager',
-      department: 'Management',
-      location: 'Chicago',
-      type: 'Full-time',
-      experience: '4+ years',
-      salary: '$70,000 - $95,000',
-      description: 'Experienced Project Manager needed to lead cross-functional teams and ensure successful project delivery.',
-      requirements: [
-        '4+ years of project management experience',
-        'PMP or similar certification preferred',
-        'Experience with Agile/Scrum methodologies',
-        'Strong leadership and communication skills',
-        'Experience in technology or software projects'
-      ],
-      responsibilities: [
-        'Lead project teams and coordinate deliverables',
-        'Manage project timelines, budgets, and resources',
-        'Communicate with stakeholders and clients',
-        'Ensure quality standards and best practices',
-        'Identify risks and develop mitigation strategies'
-      ],
-      posted: '2024-01-03'
-    }
+    // {
+    //   id: 1,
+    //   title: 'Senior Full Stack Developer',
+    //   department: 'Engineering',
+    //   location: 'Remote',
+    //   type: 'Full-time',
+    //   experience: '4+ years',
+    //   salary: '$80,000 - $120,000',
+    //   description: 'We are looking for an experienced Full Stack Developer to join our growing team. You will work on cutting-edge projects using React, Node.js, and modern web technologies.',
+    //   requirements: [
+    //     '4+ years of experience with React and Node.js',
+    //     'Strong knowledge of JavaScript, TypeScript, and modern web technologies',
+    //     'Experience with databases (MongoDB, PostgreSQL)',
+    //     'Familiarity with cloud platforms (AWS, Google Cloud)',
+    //     'Excellent problem-solving and communication skills'
+    //   ],
+    //   responsibilities: [
+    //     'Develop and maintain web applications using React and Node.js',
+    //     'Collaborate with cross-functional teams to deliver high-quality software',
+    //     'Write clean, maintainable, and well-documented code',
+    //     'Participate in code reviews and technical discussions',
+    //     'Stay up-to-date with the latest web development trends'
+    //   ],
+    //   posted: '2024-01-15'
+    // },
+    // {
+    //   id: 2,
+    //   title: 'UI/UX Designer',
+    //   department: 'Design',
+    //   location: 'New York',
+    //   type: 'Full-time',
+    //   experience: '3+ years',
+    //   salary: '$65,000 - $90,000',
+    //   description: 'Join our design team to create beautiful and intuitive user experiences for web and mobile applications.',
+    //   requirements: [
+    //     '3+ years of experience in UI/UX design',
+    //     'Proficiency in Figma, Sketch, and Adobe Creative Suite',
+    //     'Strong portfolio showcasing web and mobile designs',
+    //     'Understanding of responsive design principles',
+    //     'Experience with prototyping and user testing'
+    //   ],
+    //   responsibilities: [
+    //     'Design user interfaces for web and mobile applications',
+    //     'Create wireframes, prototypes, and high-fidelity designs',
+    //     'Conduct user research and usability testing',
+    //     'Collaborate with developers to ensure design implementation',
+    //     'Maintain and evolve design systems'
+    //   ],
+    //   posted: '2024-01-12'
+    // },
+    // {
+    //   id: 3,
+    //   title: 'Digital Marketing Specialist',
+    //   department: 'Marketing',
+    //   location: 'Los Angeles',
+    //   type: 'Full-time',
+    //   experience: '2+ years',
+    //   salary: '$50,000 - $70,000',
+    //   description: 'We are seeking a creative Digital Marketing Specialist to develop and execute marketing campaigns across various digital channels.',
+    //   requirements: [
+    //     '2+ years of experience in digital marketing',
+    //     'Knowledge of SEO, SEM, and social media marketing',
+    //     'Experience with Google Analytics and marketing tools',
+    //     'Strong analytical and communication skills',
+    //     'Bachelor\'s degree in Marketing or related field'
+    //   ],
+    //   responsibilities: [
+    //     'Develop and execute digital marketing campaigns',
+    //     'Manage social media accounts and content creation',
+    //     'Analyze campaign performance and optimize strategies',
+    //     'Collaborate with design team for marketing materials',
+    //     'Stay current with digital marketing trends'
+    //   ],
+    //   posted: '2024-01-10'
+    // },
+    // {
+    //   id: 4,
+    //   title: 'DevOps Engineer',
+    //   department: 'Engineering',
+    //   location: 'Remote',
+    //   type: 'Full-time',
+    //   experience: '3+ years',
+    //   salary: '$75,000 - $110,000',
+    //   description: 'Looking for a DevOps Engineer to help build and maintain our cloud infrastructure and deployment pipelines.',
+    //   requirements: [
+    //     '3+ years of experience in DevOps or infrastructure',
+    //     'Strong knowledge of AWS, Docker, and Kubernetes',
+    //     'Experience with CI/CD pipelines and automation',
+    //     'Proficiency in scripting languages (Python, Bash)',
+    //     'Understanding of monitoring and logging systems'
+    //   ],
+    //   responsibilities: [
+    //     'Design and maintain cloud infrastructure',
+    //     'Implement and optimize CI/CD pipelines',
+    //     'Monitor system performance and reliability',
+    //     'Automate deployment and scaling processes',
+    //     'Ensure security and compliance standards'
+    //   ],
+    //   posted: '2024-01-08'
+    // },
+    // {
+    //   id: 5,
+    //   title: 'Junior Frontend Developer',
+    //   department: 'Engineering',
+    //   location: 'Remote',
+    //   type: 'Full-time',
+    //   experience: '1+ years',
+    //   salary: '$45,000 - $65,000',
+    //   description: 'Perfect opportunity for a junior developer to grow their skills in a supportive environment with mentorship from senior developers.',
+    //   requirements: [
+    //     '1+ years of experience with JavaScript and React',
+    //     'Understanding of HTML, CSS, and responsive design',
+    //     'Familiarity with Git and version control',
+    //     'Basic knowledge of web performance optimization',
+    //     'Eagerness to learn and grow'
+    //   ],
+    //   responsibilities: [
+    //     'Develop user interfaces using React and modern CSS',
+    //     'Collaborate with senior developers on feature development',
+    //     'Write and maintain unit tests',
+    //     'Participate in code reviews and team meetings',
+    //     'Learn and apply best practices in web development'
+    //   ],
+    //   posted: '2024-01-05'
+    // },
+    // {
+    //   id: 6,
+    //   title: 'Project Manager',
+    //   department: 'Management',
+    //   location: 'Chicago',
+    //   type: 'Full-time',
+    //   experience: '4+ years',
+    //   salary: '$70,000 - $95,000',
+    //   description: 'Experienced Project Manager needed to lead cross-functional teams and ensure successful project delivery.',
+    //   requirements: [
+    //     '4+ years of project management experience',
+    //     'PMP or similar certification preferred',
+    //     'Experience with Agile/Scrum methodologies',
+    //     'Strong leadership and communication skills',
+    //     'Experience in technology or software projects'
+    //   ],
+    //   responsibilities: [
+    //     'Lead project teams and coordinate deliverables',
+    //     'Manage project timelines, budgets, and resources',
+    //     'Communicate with stakeholders and clients',
+    //     'Ensure quality standards and best practices',
+    //     'Identify risks and develop mitigation strategies'
+    //   ],
+    //   posted: '2024-01-03'
+    // }
   ];
 
   const departments = [
@@ -212,27 +212,27 @@ const CareersPage = () => {
   ];
 
   // Filter jobs based on search, department, and location
-  useEffect(() => {
-    let filtered = jobOpenings;
+  // useEffect(() => {
+  //   let filtered = jobOpenings;
 
-    if (selectedDepartment !== 'all') {
-      filtered = filtered.filter(job => job.department === selectedDepartment);
-    }
+  //   if (selectedDepartment !== 'all') {
+  //     filtered = filtered.filter(job => job.department === selectedDepartment);
+  //   }
 
-    if (selectedLocation !== 'all') {
-      filtered = filtered.filter(job => job.location === selectedLocation);
-    }
+  //   if (selectedLocation !== 'all') {
+  //     filtered = filtered.filter(job => job.location === selectedLocation);
+  //   }
 
-    if (searchTerm) {
-      filtered = filtered.filter(job =>
-        job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.department.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
+  //   if (searchTerm) {
+  //     filtered = filtered.filter(job =>
+  //       job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       job.department.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //   }
 
-    setFilteredJobs(filtered);
-  }, [searchTerm, selectedDepartment, selectedLocation]);
+  //   setFilteredJobs(filtered);
+  // }, [searchTerm, selectedDepartment, selectedLocation]);
 
   const handleApply = (job) => {
     setSelectedJob(job);
@@ -260,7 +260,7 @@ const CareersPage = () => {
                 View Open Positions
                 <FaArrowRight className="ml-2" />
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-900">
+              <Button variant="outline" size="lg" className="border-white text-white hover:!bg-white hover:!text-blue-600">
                 Learn About Our Culture
               </Button>
             </div>
@@ -306,6 +306,7 @@ const CareersPage = () => {
       </section>
 
       {/* Job Search Section */}
+      {jobOpenings.length > 0 && (
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -348,6 +349,7 @@ const CareersPage = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* Job Listings */}
       <section className="pb-20">
