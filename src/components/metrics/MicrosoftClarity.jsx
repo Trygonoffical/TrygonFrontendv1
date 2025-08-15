@@ -16,6 +16,8 @@ const MicrosoftClarity = () =>{
                 `,
             }}
         />
+
+<Script id="pixel-chaty" async="true" src="https://cdn.chaty.app/pixel.js?id=0jyNhP8V" />
     </>
   )
 }
