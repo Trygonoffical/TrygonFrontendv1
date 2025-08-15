@@ -19,126 +19,37 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
+import { getBlogPostBySlug, getRelatedPosts } from '@/data/blogData';
 
 const BlogPostPage = ({ slug }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(0);
-
-  // Sample blog post data - in a real app, you'd fetch this based on the slug
-  const blogPost = {
-    id: 1,
-    title: "The Future of Web Development: AI Integration",
-    content: `
-      <div class="prose max-w-none">
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-          Artificial Intelligence is revolutionizing the way we approach web development. From automated code generation to intelligent user experiences, AI is becoming an integral part of modern web development workflows.
-        </p>
-        
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">What's Changing in Web Development?</h2>
-        
-        <p class="text-gray-700 leading-relaxed mb-6">
-          The integration of AI in web development is not just a trend—it's a fundamental shift that's reshaping how we build, deploy, and maintain web applications. Here are the key areas where AI is making the biggest impact:
-        </p>
-        
-        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">1. Automated Code Generation</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          AI-powered tools like GitHub Copilot and ChatGPT are helping developers write code faster and more efficiently. These tools can generate entire functions, suggest optimizations, and even help debug complex issues.
-        </p>
-        
-        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">2. Intelligent User Interfaces</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          Modern web applications are incorporating AI to create more personalized and intuitive user experiences. From chatbots to recommendation engines, AI is making websites smarter and more responsive to user needs.
-        </p>
-        
-        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">3. Performance Optimization</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          AI algorithms can analyze user behavior patterns and automatically optimize website performance, load times, and resource allocation to provide the best possible user experience.
-        </p>
-        
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">The Business Impact</h2>
-        
-        <p class="text-gray-700 leading-relaxed mb-6">
-          For businesses, AI integration in web development means faster time-to-market, reduced development costs, and more sophisticated user experiences that drive engagement and conversions.
-        </p>
-        
-        <blockquote class="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-blue-50 rounded-r-lg">
-          <p class="text-gray-700 italic text-lg">
-            "AI is not replacing developers—it's empowering them to build better, faster, and more innovative web solutions."
-          </p>
-        </blockquote>
-        
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Getting Started with AI in Web Development</h2>
-        
-        <p class="text-gray-700 leading-relaxed mb-4">
-          If you&apos;re looking to integrate AI into your web development process, here are some practical steps to get started:
-        </p>
-        
-        <ul class="list-disc pl-6 mb-6 text-gray-700">
-          <li class="mb-2">Experiment with AI-powered development tools like GitHub Copilot</li>
-          <li class="mb-2">Integrate chatbots or virtual assistants into your websites</li>
-          <li class="mb-2">Use AI for automated testing and quality assurance</li>
-          <li class="mb-2">Implement AI-driven analytics for better user insights</li>
-          <li class="mb-2">Consider AI-powered content management systems</li>
-        </ul>
-        
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Looking Ahead</h2>
-        
-        <p class="text-gray-700 leading-relaxed mb-6">
-          The future of web development will be increasingly AI-driven. As these technologies continue to evolve, we can expect even more sophisticated tools and capabilities that will transform how we build and interact with web applications.
-        </p>
-        
-        <p class="text-gray-700 leading-relaxed">
-                        At Trygon, we&apos;re already incorporating AI technologies into our development processes to deliver cutting-edge solutions for our clients. Contact us to learn how AI can transform your web development projects.
-        </p>
-      </div>
-    `,
-    author: "Alex Thompson",
-    authorImage: "/api/placeholder/60/60",
-    authorBio: "Senior Full-Stack Developer with 8+ years of experience in modern web technologies and AI integration.",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    category: "Technology",
-    slug: "future-web-development-ai-integration",
-    image: "/api/placeholder/1200/600",
-    tags: ["AI", "Web Development", "Future Tech", "Automation"],
-    views: 1250,
-    likes: 89
-  };
-
-  // Related posts
-  const relatedPosts = [
-    {
-      id: 2,
-      title: "React 18 New Features: What Developers Need to Know",
-      excerpt: "Explore the latest features in React 18 including concurrent rendering...",
-      slug: "react-18-new-features-developers-guide",
-      image: "/api/placeholder/300/200",
-      category: "Development",
-      readTime: "8 min read"
-    },
-    {
-      id: 3,
-      title: "Mobile-First Design: Best Practices for 2024",
-      excerpt: "Learn the essential principles of mobile-first design...",
-      slug: "mobile-first-design-best-practices-2024",
-      image: "/api/placeholder/300/200",
-      category: "Design",
-      readTime: "7 min read"
-    },
-    {
-      id: 4,
-      title: "Cloud Migration Strategy: A Complete Guide",
-      excerpt: "Step-by-step guide to successfully migrate your applications...",
-      slug: "cloud-migration-strategy-complete-guide",
-      image: "/api/placeholder/300/200",
-      category: "Cloud",
-      readTime: "10 min read"
-    }
-  ];
+  const [blogPost, setBlogPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
-    setLikes(blogPost.likes);
-  }, []);
+    if (slug) {
+      const post = getBlogPostBySlug(slug);
+      if (post) {
+        setBlogPost(post);
+        setLikes(post.likes);
+        setRelatedPosts(getRelatedPosts(post));
+      }
+    }
+  }, [slug]);
+
+  if (!blogPost) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Blog Post Not Found</h1>
+          <Link href="/blog">
+            <Button>Back to Blog</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -199,7 +110,7 @@ const BlogPostPage = ({ slug }) => {
       {/* Article Content */}
       <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-8">
+          <div className="grid lg:grid-cols-4 gap-4">
             {/* Main Content */}
             <div className="lg:col-span-3">
               {/* Article Body */}
@@ -253,13 +164,13 @@ const BlogPostPage = ({ slug }) => {
                   {/* Like Button */}
                   <button
                     onClick={handleLike}
-                    className={`w-full flex items-center justify-center py-3 px-4 rounded-lg border-2 transition-all duration-200 mb-4 ${
+                    className={`w-full text-blue-600 flex items-center justify-center py-3 px-4 rounded-lg border-2 transition-all duration-200 mb-4 ${
                       isLiked 
-                        ? 'border-red-500 bg-red-50 text-red-600' 
+                        ? 'border-red-600 bg-red-100 text-red-700' 
                         : 'border-gray-300 hover:border-red-300 hover:bg-red-50'
                     }`}
                   >
-                    <FaHeart className={`w-5 h-5 mr-2 ${isLiked ? 'text-red-500' : 'text-gray-400'}`} />
+                    <FaHeart className={`w-5 h-5 mr-2 text-red-600 ${isLiked ? 'text-red-600' : 'text-gray-400'}`} />
                     {likes} Likes
                   </button>
 
@@ -300,7 +211,7 @@ const BlogPostPage = ({ slug }) => {
                 </div>
 
                 {/* Table of Contents could go here */}
-                <div className="bg-gray-50 rounded-xl p-6">
+                {/* <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="font-semibold text-gray-900 mb-4">Quick Navigation</h3>
                   <ul className="space-y-2 text-sm">
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">What&apos;s Changing</a></li>
@@ -308,7 +219,7 @@ const BlogPostPage = ({ slug }) => {
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">Getting Started</a></li>
                     <li><a href="#" className="text-blue-600 hover:text-blue-700">Looking Ahead</a></li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -316,6 +227,7 @@ const BlogPostPage = ({ slug }) => {
       </article>
 
       {/* Related Posts */}
+      {relatedPosts.length > 0 && (
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -362,6 +274,7 @@ const BlogPostPage = ({ slug }) => {
           </div>
         </div>
       </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">

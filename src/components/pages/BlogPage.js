@@ -14,113 +14,22 @@ import {
 } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
 import { Input } from '@/components/ui/Form';
+import Image from 'next/image';
+import { 
+  blogPosts, 
+  getPostsByCategory, 
+  searchPosts, 
+  getCategories 
+} from '@/data/blogData';
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [filteredPosts, setFilteredPosts] = useState([]);
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Web Development: AI Integration",
-      excerpt: "Discover how artificial intelligence is revolutionizing web development and what it means for businesses in 2024. From automated code generation to intelligent user experiences.",
-      content: "Full blog post content here...",
-      author: "Alex Thompson",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-15",
-      readTime: "5 min read",
-      category: "Technology",
-      slug: "future-web-development-ai-integration",
-      image: "/api/placeholder/600/300",
-      tags: ["AI", "Web Development", "Future Tech", "Automation"],
-      views: 1250
-    },
-    {
-      id: 2,
-      title: "Mobile-First Design: Best Practices for 2024",
-      excerpt: "Learn the essential principles of mobile-first design and how it can boost your conversion rates significantly. Complete guide with practical examples.",
-      content: "Full blog post content here...",
-      author: "Sarah Wilson",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-12",
-      readTime: "7 min read",
-      category: "Design",
-      slug: "mobile-first-design-best-practices-2024",
-      image: "/api/placeholder/600/300",
-      tags: ["Mobile Design", "UX", "Conversion", "Best Practices"],
-      views: 980
-    },
-    {
-      id: 3,
-      title: "E-commerce Security: Protecting Your Customers",
-      excerpt: "Essential security measures every e-commerce business should implement to protect customer data and build trust. A comprehensive security checklist.",
-      content: "Full blog post content here...",
-      author: "Mike Roberts",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-10",
-      readTime: "6 min read",
-      category: "Security",
-      slug: "ecommerce-security-protecting-customers",
-      image: "/api/placeholder/600/300",
-      tags: ["Security", "E-commerce", "Privacy", "Trust"],
-      views: 1420
-    },
-    {
-      id: 4,
-      title: "React 18 New Features: What Developers Need to Know",
-      excerpt: "Explore the latest features in React 18 including concurrent rendering, automatic batching, and Suspense improvements that will change how you build apps.",
-      content: "Full blog post content here...",
-      author: "Emily Chen",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-08",
-      readTime: "8 min read",
-      category: "Development",
-      slug: "react-18-new-features-developers-guide",
-      image: "/api/placeholder/600/300",
-      tags: ["React", "JavaScript", "Frontend", "Development"],
-      views: 2100
-    },
-    {
-      id: 5,
-      title: "Cloud Migration Strategy: A Complete Guide",
-      excerpt: "Step-by-step guide to successfully migrate your applications to the cloud. Learn about different cloud providers, costs, and migration strategies.",
-      content: "Full blog post content here...",
-      author: "David Kumar",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-05",
-      readTime: "10 min read",
-      category: "Cloud",
-      slug: "cloud-migration-strategy-complete-guide",
-      image: "/api/placeholder/600/300",
-      tags: ["Cloud", "Migration", "AWS", "DevOps"],
-      views: 1680
-    },
-    {
-      id: 6,
-      title: "SEO Trends 2024: What's Changing in Search",
-      excerpt: "Stay ahead of the curve with the latest SEO trends and algorithm updates. Learn how AI and user experience are reshaping search rankings.",
-      content: "Full blog post content here...",
-      author: "Lisa Johnson",
-      authorImage: "/api/placeholder/40/40",
-      date: "2024-01-03",
-      readTime: "6 min read",
-      category: "Marketing",
-      slug: "seo-trends-2024-search-algorithm-changes",
-      image: "/api/placeholder/600/300",
-      tags: ["SEO", "Digital Marketing", "Search", "Trends"],
-      views: 1890
-    }
-  ];
+  const [filteredPosts, setFilteredPosts] = useState(blogPosts);
 
   const categories = [
     { value: 'all', label: 'All Categories' },
-    { value: 'Technology', label: 'Technology' },
-    { value: 'Design', label: 'Design' },
-    { value: 'Development', label: 'Development' },
-    { value: 'Security', label: 'Security' },
-    { value: 'Cloud', label: 'Cloud' },
-    { value: 'Marketing', label: 'Marketing' }
+    ...getCategories()
   ];
 
   // Filter posts based on search and category
@@ -128,15 +37,11 @@ const BlogPage = () => {
     let filtered = blogPosts;
 
     if (selectedCategory !== 'all') {
-      filtered = filtered.filter(post => post.category === selectedCategory);
+      filtered = getPostsByCategory(selectedCategory);
     }
 
     if (searchTerm) {
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
+      filtered = searchPosts(searchTerm);
     }
 
     setFilteredPosts(filtered);
@@ -188,7 +93,7 @@ const BlogPage = () => {
                 >
                   {categories.map(category => (
                     <option key={category.value} value={category.value}>
-                      {category.label}
+                      {category.label} {category.count ? `(${category.count})` : ''}
                     </option>
                   ))}
                 </select>
@@ -221,10 +126,12 @@ const BlogPage = () => {
                 >
                   {/* Post Image */}
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                      width={600}
+                      height={300}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -273,10 +180,12 @@ const BlogPage = () => {
                     {/* Author & Read More */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <img
+                        <Image
                           src={post.authorImage}
                           alt={post.author}
                           className="w-8 h-8 rounded-full object-cover mr-3"
+                          width={32}
+                          height={32}
                         />
                         <span className="text-sm text-gray-600">By {post.author}</span>
                       </div>
@@ -308,7 +217,7 @@ const BlogPage = () => {
           )}
 
           {/* Load More Button */}
-          {filteredPosts.length > 0 && (
+          {filteredPosts.length > 6 && (
             <div className="text-center mt-12">
               <Button size="lg" className="group">
                 Load More Articles

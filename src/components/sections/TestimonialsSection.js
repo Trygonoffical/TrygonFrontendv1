@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
       company: 'TechStart Inc.',
       position: 'CEO',
       rating: 5,
-      image: "/api/placeholder/80/80",
+      image: "/assets/logo/profile.png",
       testimonial: 'Trygon transformed our online presence completely. Their web development team delivered beyond our expectations with a modern, fast website that significantly increased our conversions by 300%.',
       project: 'E-commerce Platform'
     },
@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
       company: 'Global Retail Co.',
       position: 'CTO',
       rating: 5,
-      image: "/api/placeholder/80/80",
+      image: "/assets/logo/profile.png",
       testimonial: 'The e-commerce platform they built for us has been a game-changer. Sales increased by 200% in the first quarter after launch. Their team is professional and delivers exceptional results.',
       project: 'Multi-vendor Marketplace'
     },
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
       company: 'Creative Agency',
       position: 'Founder',
       rating: 5,
-      image: "/api/placeholder/80/80",
+      image: "/assets/logo/profile.png",
       testimonial: 'Professional, responsive, and incredibly talented. The mobile app they developed for us won industry awards. We couldn\'t be happier with the results and ongoing support.',
       project: 'Creative Portfolio App'
     },
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
       company: 'HealthTech Solutions',
       position: 'VP of Technology',
       rating: 5,
-      image: "/api/placeholder/80/80",
+      image: "/assets/logo/profile.png",
       testimonial: 'Trygon delivered a complex healthcare platform that exceeded all our requirements. Their attention to security and compliance was outstanding. Highly recommended!',
       project: 'Healthcare Management System'
     }

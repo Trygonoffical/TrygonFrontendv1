@@ -6,49 +6,16 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { FaArrowRight, FaEye, FaCalendarAlt } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
+import { getFeaturedPosts } from '@/data/blogData';
 
 const BlogSection = () => {
   const [isClient, setIsClient] = useState(false);
+  const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
     setIsClient(true);
+    setBlogPosts(getFeaturedPosts());
   }, []);
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Web Development: AI Integration",
-      excerpt: "Discover how artificial intelligence is revolutionizing web development and what it means for businesses in 2024.",
-      author: "Alex Thompson",
-      date: "2024-01-15",
-      readTime: "5 min read",
-      category: "Technology",
-      image: "/api/placeholder/400/250",
-      tags: ["AI", "Web Development", "Future Tech"]
-    },
-    {
-      id: 2,
-      title: "Mobile-First Design: Best Practices for 2024",
-      excerpt: "Learn the essential principles of mobile-first design and how it can boost your conversion rates significantly.",
-      author: "Sarah Wilson",
-      date: "2024-01-12",
-      readTime: "7 min read",
-      category: "Design",
-      image: "/api/placeholder/400/250",
-      tags: ["Mobile Design", "UX", "Conversion"]
-    },
-    {
-      id: 3,
-      title: "E-commerce Security: Protecting Your Customers",
-      excerpt: "Essential security measures every e-commerce business should implement to protect customer data and build trust.",
-      author: "Mike Roberts",
-      date: "2024-01-10",
-      readTime: "6 min read",
-      category: "Security",
-      image: "/api/placeholder/400/250",
-      tags: ["Security", "E-commerce", "Privacy"]
-    }
-  ];
 
   if (!isClient) return null;
 
@@ -80,13 +47,13 @@ const BlogSection = () => {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative">
-                                  <Image 
-                    src={post.image} 
-                    alt={post.title} 
-                    width={600}
-                    height={300}
-                    className="w-full h-48 object-cover" 
-                  />
+                <Image 
+                  src={post.image} 
+                  alt={post.title} 
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover" 
+                />
                 <div className="absolute top-4 left-4">
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {post.category}
@@ -112,7 +79,7 @@ const BlogSection = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag, i) => (
+                  {post.tags.slice(0, 3).map((tag, i) => (
                     <span key={i} className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
                       #{tag}
                     </span>
@@ -121,7 +88,7 @@ const BlogSection = () => {
 
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">By {post.author}</span>
-                  <Link href={`/blog/${post.id}`}>
+                  <Link href={`/blog/${post.slug}`}>
                     <Button variant="outline" size="sm" className="group">
                       Read More
                       <FaArrowRight className="ml-2 w-3 h-3 group-hover:translate-x-1 transition-transform" />
