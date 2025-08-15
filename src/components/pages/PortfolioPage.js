@@ -183,7 +183,7 @@ const PortfolioPage = () => {
     {
       id: 11,
       title: 'Nurturing Serenity Educations',
-      categories: ['website'],
+      categories: ['website' , 'E-learning'],
       description: 'Nurturing Serenity Educations dedicated to fostering the holistic development of individuals, starting from a young age.',
       image: '/assets/projects/feature/dr.png',
       technologies: ['Wordpress', 'php', 'MySQL'],
@@ -198,7 +198,7 @@ const PortfolioPage = () => {
     {
       id: 12,
       title: 'Tour and Travel',
-      categories: ['website'],
+      categories: ['website', 'travel'],
       description: 'Tour and Travel is a platform that helps individuals grow and succeed.',
       image: '/assets/projects/feature/travel.png',
       technologies: ['Laravel', 'php', 'MySQL'],
