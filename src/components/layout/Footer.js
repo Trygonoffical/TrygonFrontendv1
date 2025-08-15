@@ -111,18 +111,18 @@ const Footer = () => {
                 WP-501 D, Second floor, Shiv Market, Wazirpur, Wazirpur Village, Ashok Vihar, Delhi, 110052
                 </span>
               </div>
-              <div className="flex items-center">
+              <Link href="tel:+918851285655" className="flex items-center">
                 <HiPhone className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">+91 (885) 128-5655</span>
-              </div>
-              <div className="flex items-center">
+              </Link>
+              <Link href="tel:+917065009097" className="flex items-center">
                 <HiPhone className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">+91 (706) 500-9097</span>
-              </div>
-              <div className="flex items-center">
+              </Link>
+              <Link href="mailto:info@trygon.in" className="flex items-center">
                 <HiMail className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">info@trygon.in</span>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

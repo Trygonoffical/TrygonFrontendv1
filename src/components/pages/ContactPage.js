@@ -132,31 +132,40 @@ const ContactPage = () => {
       icon: FaPhone,
       title: 'Phone 1',
       content: '+91 (885) 128-5655',
-      description: 'Call us during business hours'
+      description: 'Call us during business hours',
+      link: 'tel:+918851285655',
+      isLink: true
     },
     {
       icon: FaPhone,
       title: 'Phone 2',
       content: '+91 (706) 500-9097',
-      description: 'Call us during business hours'
+      description: 'Call us during business hours',
+      link: 'tel:+917065009097',
+      isLink: true
     },
     {
       icon: FaEnvelope,
       title: 'Email',
       content: 'info@trygon.in',
-      description: 'Send us an email anytime'
+      description: 'Send us an email anytime',
+      link: 'mailto:info@trygon.in',
+      isLink: true
     },
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
       content: 'WP-501 D, Second floor, Shiv Market, Wazirpur, Wazirpur Village, Ashok Vihar, Delhi, 110052',
-      description: 'Visit our office'
+      description: 'Visit our office',
+      link: 'https://maps.google.com/?q=WP-501+D,+Second+floor,+Shiv+Market,+Wazirpur,+Wazirpur+Village,+Ashok+Vihar,+Delhi,+110052',
+      isLink: true
     },
     {
       icon: FaClock,
       title: 'Business Hours',
       content: 'Mon - Fri: 9:00 AM - 6:00 PM PST',
-      description: 'Weekend support available'
+      description: 'Weekend support available',
+      isLink: false
     }
   ];
 
@@ -337,18 +346,40 @@ const ContactPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   >
-                    <Card>
-                      <div className="flex items-start">
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                          <info.icon className="w-6 h-6 text-blue-600" />
+                    {info.isLink ? (
+                      <a 
+                        href={info.link} 
+                        target={info.link.startsWith('http') ? '_blank' : '_self'}
+                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                        className="block transition-transform hover:scale-105"
+                      >
+                        <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                          <div className="flex items-start">
+                            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                              <info.icon className="w-6 h-6 text-blue-600" />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
+                              <p className="text-blue-600 font-medium mb-1 hover:text-blue-800 transition-colors">{info.content}</p>
+                              <p className="text-gray-600 text-sm">{info.description}</p>
+                            </div>
+                          </div>
+                        </Card>
+                      </a>
+                    ) : (
+                      <Card>
+                        <div className="flex items-start">
+                          <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <info.icon className="w-6 h-6 text-blue-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
+                            <p className="text-blue-600 font-medium mb-1">{info.content}</p>
+                            <p className="text-gray-600 text-sm">{info.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
-                          <p className="text-blue-600 font-medium mb-1">{info.content}</p>
-                          <p className="text-gray-600 text-sm">{info.description}</p>
-                        </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    )}
                   </motion.div>
                 ))}
               </div>
