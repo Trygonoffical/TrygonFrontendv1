@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
-import AchievementsSection from '@/components/sections/AchievementsSection';
+import TechStackMarquee from '@/components/sections/TechStackMarquee';
 import ServicesSection from '@/components/sections/ServicesSection';
+import HowWeWorkSection from '@/components/sections/HowWeWorkSection';
+import AppShowcase from '@/components/sections/AppShowcase';
+import AchievementsSection from '@/components/sections/AchievementsSection';
 import ProjectShowcaseSection from '@/components/sections/ProjectShowcaseSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import BlogSection from '@/components/sections/BlogSection';
@@ -12,27 +15,29 @@ import CTASection from '@/components/sections/CTASection';
 const HomePage = () => {
   const [isClient, setIsClient] = useState(false);
 
-  // Fix hydration by ensuring client-side rendering
   useEffect(() => {
     setIsClient(true);
   }, []); 
 
   if (!isClient) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+      <div className="min-h-screen flex items-center justify-center bg-[#030712]">
         <div className="text-white text-center">
-          <div className="w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-xl">Loading amazing experience...</p>
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-xl text-gray-400">Loading experience...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#030712] text-white">
       <HeroSection />
-      <AchievementsSection />
+      <TechStackMarquee />
       <ServicesSection />
+      <HowWeWorkSection />
+      <AppShowcase />
+      <AchievementsSection />
       <ProjectShowcaseSection />
       <TestimonialsSection />
       <BlogSection />

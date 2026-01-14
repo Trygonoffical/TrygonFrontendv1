@@ -61,16 +61,16 @@ const ContactPage = () => {
 
       // Save to Supabase with correct column names
       const { data, error } = await supabase
-        .from('quotation_requests')
+        .from('contact_details')
         .insert([
           {
-            fullName: formData.name,
+            full_name: formData.name,
             email: formData.email,
-            phoneNumber: formData.phone,
-            companyName: formData.company,
+            phone: formData.phone,
+            company_name: formData.company,
             service: formData.service,
-            projectBudget: formData.budget,
-            projectDescription: formData.message,
+            budget: formData.budget,
+            description: formData.message,
             created_at: new Date().toISOString()
           }
         ])
@@ -211,20 +211,25 @@ const ContactPage = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#030712] text-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-[#030712] py-20 lg:py-32 overflow-hidden">
+        {/* Abstract Background */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]"></div>
+             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Let&apos;s Build Something <span className="text-blue-400">Amazing</span> Together
+            <h1 className="text-4xl lg:text-7xl font-bold mb-6 tracking-tight">
+              Let&apos;s Build Something <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Amazing</span> Together
             </h1>
-            <p className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Ready to transform your business with cutting-edge technology? 
               Get in touch with our expert team today.
             </p>
@@ -233,7 +238,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -242,13 +247,13 @@ const ContactPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Card>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Start Your Project</h2>
-                <p className="text-gray-600 mb-8">
+              <Card  className="border-white/10 text-black">
+                <h2 className="text-3xl font-bold text-black mb-6">Start Your Project</h2>
+                <p className="text-gray-700 mb-8">
                   Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed proposal.
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 text-black">
                   <div className="grid md:grid-cols-2 gap-4">
                     <Input
                       label="Full Name *"
@@ -256,6 +261,8 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
+                      
+                      className="text-black"
                     />
                     <Input
                       label="Email Address *"
@@ -264,6 +271,7 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
+                      
                     />
                   </div>
 
@@ -274,12 +282,14 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
+                      
                     />
                     <Input
                       label="Company Name"
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
+                      
                     />
                   </div>
 
@@ -291,6 +301,7 @@ const ContactPage = () => {
                       onChange={handleInputChange}
                       options={services}
                       required
+                      
                     />
                     <Select
                       label="Project Budget"
@@ -298,6 +309,7 @@ const ContactPage = () => {
                       value={formData.budget}
                       onChange={handleInputChange}
                       options={budgetRanges}
+                      
                     />
                   </div>
 
@@ -309,12 +321,13 @@ const ContactPage = () => {
                     rows={6}
                     placeholder="Tell us about your project, goals, and any specific requirements..."
                     required
+                    
                   />
 
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full"
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white"
                     loading={isSubmitting}
                   >
                     Send Message
@@ -331,8 +344,8 @@ const ContactPage = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-                <p className="text-gray-600 mb-8">
+                <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
+                <p className="text-gray-400 mb-8">
                   We&apos;re here to help you succeed. Reach out through any of these channels 
                   and let&apos;s discuss how we can bring your vision to life.
                 </p>
@@ -353,29 +366,29 @@ const ContactPage = () => {
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
                         className="block transition-transform hover:scale-105"
                       >
-                        <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                        <Card variant="glass" className="hover:bg-white/10 text-black hover:text-white transition-colors cursor-pointer border-white/5">
                           <div className="flex items-start">
-                            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                              <info.icon className="w-6 h-6 text-blue-600" />
+                            <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                              <info.icon className="w-6 h-6 text-blue-400" />
                             </div>
                             <div>
-                              <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
-                              <p className="text-blue-600 font-medium mb-1 hover:text-blue-800 transition-colors">{info.content}</p>
-                              <p className="text-gray-600 text-sm">{info.description}</p>
+                              <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
+                              <p className="text-blue-400 font-medium mb-1 hover:text-blue-300 transition-colors">{info.content}</p>
+                              <p className="text-gray-500 text-sm">{info.description}</p>
                             </div>
                           </div>
                         </Card>
                       </a>
                     ) : (
-                      <Card>
+                      <Card variant="glass" className="border-white/5">
                         <div className="flex items-start">
-                          <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                            <info.icon className="w-6 h-6 text-blue-600" />
+                          <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                            <info.icon className="w-6 h-6 text-blue-400" />
                           </div>
                           <div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
-                            <p className="text-blue-600 font-medium mb-1">{info.content}</p>
-                            <p className="text-gray-600 text-sm">{info.description}</p>
+                            <h3 className="text-lg font-semibold text-black mb-1">{info.title}</h3>
+                            <p className="text-blue-400 font-medium mb-1">{info.content}</p>
+                            <p className="text-gray-500 text-sm">{info.description}</p>
                           </div>
                         </div>
                       </Card>
@@ -385,19 +398,19 @@ const ContactPage = () => {
               </div>
 
               {/* Social Media */}
-              <Card>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
+              <Card variant="glass" className="border-white/5">
+                <h3 className="text-lg font-semibold text-black mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <a href="https://www.facebook.com/Trygon.in" className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                  <a href="https://www.facebook.com/Trygon.in" className="w-10 h-10 bg-[#1877F2] rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity">
                     <FaFacebook className="w-5 h-5" />
                   </a>
-                  <a href="https://twitter.com/trygon_web" className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                  <a href="https://twitter.com/trygon_web" className="w-10 h-10 bg-[#1DA1F2] rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity">
                     <FaTwitter className="w-5 h-5" />
                   </a>
-                  <a href="https://in.linkedin.com/company/trygon-technologies" className="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                  <a href="https://in.linkedin.com/company/trygon-technologies" className="w-10 h-10 bg-[#0A66C2] rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity">
                     <FaLinkedin className="w-5 h-5" />
                   </a>
-                  <a href="https://www.instagram.com/trygon_in/" className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
+                  <a href="https://www.instagram.com/trygon_in/" className="w-10 h-10 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity">
                     <FaInstagram className="w-5 h-5" />
                   </a>
                 </div>
@@ -408,53 +421,53 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 relative bg-[#050b14]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
-            <p className="text-xl text-gray-600">
-              Located in Delhi, India. Contact us at +91 8851285655 to book your FREE consultation call today.
+            <h2 className="text-4xl font-bold text-white mb-4">Visit Our Office</h2>
+            <p className="text-xl text-gray-400">
+              Located in Delhi, India. Contact us at <span className="text-blue-400">+91 8851285655</span> to book your FREE consultation call today.
             </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl overflow-hidden shadow-lg"
+            className="rounded-2xl overflow-hidden shadow-lg border border-white/10"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.929763186026!2d77.1710780755551!3d28.691747575632395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d048eefffffff%3A0x43844f05939fd14!2sTRYGON%20TECHNOLOGIES!5e0!3m2!1sen!2sin!4v1753931270104!5m2!1sen!2sin" 
               width="100%" 
               height="400" 
-              style={{ border: 0 }}
+              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-96"
+              className="w-full h-96 grayscale hover:grayscale-0 transition-all duration-500"
             ></iframe>
           </motion.div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Frequently Asked <span className="text-blue-600">Questions</span>
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Frequently Asked <span className="text-blue-500">Questions</span>
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Got questions? Here are answers to some of the most common questions we receive.
             </p>
           </motion.div>
@@ -464,12 +477,12 @@ const ContactPage = () => {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+                <Card variant="glass" className="border-white/5 hover:bg-white/5 text-black hover:text-white transition-colors">
+                  <h3 className="text-lg font-semibold  mb-3">{faq.question}</h3>
+                  <p className="text-gray-400">{faq.answer}</p>
                 </Card>
               </motion.div>
             ))}
@@ -478,7 +491,7 @@ const ContactPage = () => {
       </section>
       
       {/* Toast Container */}
-      <ToastContainer />
+      <ToastContainer theme="dark" />
     </div>
   );
 };

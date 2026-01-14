@@ -19,6 +19,8 @@ import {
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Image from 'next/image';
+import QuickConnectForm from '@/components/quickconnect/QuickConnectForm';
+import PopUpForm from '@/components/quickconnect/PopUpForm';
 
 const WebsiteDevelopmentPage = () => {
   const technologies = [
@@ -154,14 +156,14 @@ const WebsiteDevelopmentPage = () => {
                   </Button>
                 </Link>
                 <Link href="/portfolio">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:!bg-white hover:!text-blue-900">
                     View Portfolio
                   </Button>
                 </Link>
               </div>
             </motion.div>
             
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -185,7 +187,8 @@ const WebsiteDevelopmentPage = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+            <QuickConnectForm />
           </div>
         </div>
       </section>
@@ -408,6 +411,7 @@ const WebsiteDevelopmentPage = () => {
           </motion.div>
         </div>
       </section>
+      <PopUpForm />
     </div>
   );
 };

@@ -3,201 +3,212 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
-  FaPalette, 
-  FaUsers, 
-  FaMobile, 
-  FaDesktop,
-  FaEye,
-  FaPencilRuler,
-  FaLightbulb,
-  FaHeart,
+  FaShoppingCart, 
+  FaCreditCard, 
+  FaBoxes, 
+  FaShippingFast,
+  FaMobile,
+  FaChartLine,
+  FaShieldAlt,
+  FaSearch,
   FaCheckCircle,
   FaArrowRight,
-  FaUserCheck,
-  FaChartLine,
-  FaMousePointer,
-  FaCog
+  FaStore,
+  FaUsers,
+  FaCog,
+  FaTruck
 } from 'react-icons/fa';
-import Button from '../../ui/Button';
-import Card from '../../ui/Card';
+import Button from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
 import Image from 'next/image';
+import QuickConnectForm from '@/components/quickconnect/QuickConnectForm';
+import PopUpForm from '@/components/quickconnect/PopUpForm';
 
-const UIUXDesignPage = () => {
-  const designTypes = [
+const EcommerceDevelopmentPage = () => {
+  const platforms = [
     { 
-      icon: FaDesktop, 
-      name: 'Web Design', 
-      description: 'Modern, responsive website designs that convert visitors',
-      color: 'bg-blue-500'
+      icon: FaShoppingCart, 
+      name: 'Custom E-commerce', 
+      description: 'Fully customized online stores built from scratch',
+      color: 'bg-blue-600'
     },
     { 
-      icon: FaMobile, 
-      name: 'Mobile App Design', 
-      description: 'Intuitive mobile interfaces for iOS and Android',
+      icon: FaStore, 
+      name: 'Shopify Development', 
+      description: 'Professional Shopify stores with custom themes',
       color: 'bg-green-500'
     },
     { 
-      icon: FaEye, 
-      name: 'User Experience', 
-      description: 'Research-driven UX that improves user satisfaction',
+      icon: FaCog, 
+      name: 'WooCommerce', 
+      description: 'WordPress-based e-commerce solutions',
       color: 'bg-purple-500'
     },
     { 
-      icon: FaPalette, 
-      name: 'Brand Identity', 
-      description: 'Cohesive visual identity and brand systems',
+      icon: FaUsers, 
+      name: 'Multi-vendor', 
+      description: 'Marketplace platforms for multiple sellers',
       color: 'bg-orange-500'
     }
   ];
 
-  const services = [
+  const features = [
     {
-      icon: FaUsers,
-      title: 'User Research & Analysis',
-      description: 'Deep dive into user behavior, needs, and pain points to inform design decisions.',
-      features: ['User Interviews', 'Surveys & Analytics', 'Persona Development', 'Journey Mapping']
+      icon: FaCreditCard,
+      title: 'Payment Integration',
+      description: 'Secure payment gateways including Stripe, PayPal, and more for seamless transactions.',
+      details: ['Multiple Payment Methods', 'Secure Checkout', 'Recurring Payments', 'International Support']
     },
     {
-      icon: FaPencilRuler,
-      title: 'Wireframing & Prototyping',
-      description: 'Create detailed wireframes and interactive prototypes to test and validate concepts.',
-      features: ['Low-fi Wireframes', 'High-fi Prototypes', 'Interactive Mockups', 'Usability Testing']
+      icon: FaBoxes,
+      title: 'Inventory Management',
+      description: 'Advanced inventory tracking with real-time stock updates and automated alerts.',
+      details: ['Real-time Tracking', 'Low Stock Alerts', 'Bulk Import/Export', 'Variant Management']
     },
     {
-      icon: FaPalette,
-      title: 'Visual Design',
-      description: 'Stunning visual designs that align with your brand and engage your audience.',
-      features: ['UI Design Systems', 'Brand Guidelines', 'Icon Design', 'Illustration']
+      icon: FaShippingFast,
+      title: 'Order Management',
+      description: 'Complete order processing from purchase to delivery with tracking capabilities.',
+      details: ['Order Tracking', 'Shipping Integration', 'Return Management', 'Order Analytics']
     },
     {
-      icon: FaMousePointer,
-      title: 'Interaction Design',
-      description: 'Design intuitive interactions and micro-animations that delight users.',
-      features: ['Micro-interactions', 'Animation Design', 'State Management', 'Accessibility']
-    },
-    {
-      icon: FaUserCheck,
-      title: 'Usability Testing',
-      description: 'Test designs with real users to ensure optimal user experience and conversion.',
-      features: ['User Testing Sessions', 'A/B Testing', 'Heatmap Analysis', 'Conversion Optimization']
-    },
-    {
-      icon: FaCog,
-      title: 'Design Systems',
-      description: 'Build scalable design systems that ensure consistency across all touchpoints.',
-      features: ['Component Libraries', 'Style Guides', 'Design Tokens', 'Documentation']
+      icon: FaChartLine,
+      title: 'Analytics & Reporting',
+      description: 'Comprehensive analytics to track sales, customer behavior, and business performance.',
+      details: ['Sales Reports', 'Customer Analytics', 'Product Performance', 'Custom Dashboards']
     }
   ];
 
-  const principles = [
-    { icon: FaUsers, title: 'User-Centered', description: 'Always prioritize user needs and goals' },
-    { icon: FaLightbulb, title: 'Innovation', description: 'Creative solutions that stand out' },
-    { icon: FaHeart, title: 'Empathy', description: 'Understanding and designing for human emotions' },
-    { icon: FaChartLine, title: 'Data-Driven', description: 'Decisions backed by research and analytics' }
-  ];
-
-  const tools = [
-    { category: 'Design Tools', items: ['Figma', 'Adobe XD', 'Sketch', 'Adobe Creative Suite'] },
-    { category: 'Prototyping', items: ['Figma', 'InVision', 'Principle', 'Framer'] },
-    { category: 'Research Tools', items: ['Hotjar', 'Maze', 'UsabilityHub', 'Google Analytics'] },
-    { category: 'Collaboration', items: ['Miro', 'Notion', 'Slack', 'Zeplin'] }
+  const ecommerceTypes = [
+    {
+      icon: FaStore,
+      title: 'B2C E-commerce',
+      description: 'Direct-to-consumer online stores with modern shopping experiences.',
+      features: ['Product Catalogs', 'Wishlist & Favorites', 'Customer Reviews', 'Social Shopping']
+    },
+    {
+      icon: FaUsers,
+      title: 'B2B E-commerce',
+      description: 'Business-to-business platforms with wholesale pricing and bulk ordering.',
+      features: ['Bulk Pricing', 'Quote Requests', 'Account Management', 'Custom Catalogs']
+    },
+    {
+      icon: FaTruck,
+      title: 'Marketplace',
+      description: 'Multi-vendor platforms connecting buyers with multiple sellers.',
+      features: ['Vendor Management', 'Commission System', 'Product Approval', 'Seller Analytics']
+    },
+    {
+      icon: FaMobile,
+      title: 'Mobile Commerce',
+      description: 'Mobile-first e-commerce apps for iOS and Android platforms.',
+      features: ['Native Apps', 'Push Notifications', 'Mobile Payments', 'Offline Support']
+    }
   ];
 
   const process = [
     {
       step: 1,
-      title: 'Research & Discovery',
-      description: 'Understand users, business goals, and market landscape through comprehensive research.'
+      title: 'Business Analysis',
+      description: 'We analyze your business model, target audience, and competition to create a strategic plan.'
     },
     {
       step: 2,
-      title: 'Strategy & Planning',
-      description: 'Define design strategy, user personas, and information architecture.'
+      title: 'Platform Selection',
+      description: 'Choose the best e-commerce platform based on your requirements and budget.'
     },
     {
       step: 3,
-      title: 'Wireframing & Concepts',
-      description: 'Create wireframes and initial concepts to establish layout and functionality.'
+      title: 'Design & UX',
+      description: 'Create conversion-focused designs that enhance the shopping experience.'
     },
     {
       step: 4,
-      title: 'Visual Design',
-      description: 'Develop the visual language, UI components, and high-fidelity designs.'
+      title: 'Development & Integration',
+      description: 'Build your store with payment gateways, shipping, and third-party integrations.'
     },
     {
       step: 5,
-      title: 'Prototyping & Testing',
-      description: 'Build interactive prototypes and conduct usability testing for validation.'
-    },
-    {
-      step: 6,
-      title: 'Handoff & Support',
-      description: 'Deliver final designs with documentation and support during development.'
+      title: 'Testing & Launch',
+      description: 'Thorough testing followed by launch with marketing and SEO optimization.'
     }
+  ];
+
+  const integrations = [
+    { name: 'Payment Gateways', items: ['Stripe', 'PayPal', 'Square', 'Authorize.net'] },
+    { name: 'Shipping Partners', items: ['FedEx', 'UPS', 'DHL', 'USPS'] },
+    { name: 'Marketing Tools', items: ['Mailchimp', 'Klaviyo', 'Google Analytics', 'Facebook Pixel'] },
+    { name: 'Inventory Systems', items: ['QuickBooks', 'TradeGecko', 'Cin7', 'Zoho Inventory'] }
   ];
 
   const portfolio = [
     {
-      title: 'FinTech Mobile App',
-      category: 'Mobile App Design',
-      description: 'Complete redesign of a financial app that improved user engagement by 40%.',
-      metrics: '40% increase in user engagement',
+      title: 'FreshMart Grocery',
+      category: 'Grocery E-commerce',
+      description: 'Complete online grocery platform with delivery tracking and subscription services.',
+      revenue: '$2M+ Annual',
+      orders: '10K+ Monthly',
       image: '/api/placeholder/400/300'
     },
     {
-      title: 'E-commerce Platform',
-      category: 'Web Design',
-      description: 'Modern e-commerce design that increased conversion rates by 25%.',
-      metrics: '25% increase in conversions',
+      title: 'StyleHub Fashion',
+      category: 'Fashion Retail',
+      description: 'Modern fashion e-commerce with AR try-on and social shopping features.',
+      revenue: '$5M+ Annual',
+      orders: '25K+ Monthly',
       image: '/api/placeholder/400/300'
     },
     {
-      title: 'Healthcare Dashboard',
-      category: 'Dashboard Design',
-      description: 'Intuitive healthcare dashboard that reduced task completion time by 50%.',
-      metrics: '50% faster task completion',
+      title: 'TechMart Electronics',
+      category: 'Electronics Store',
+      description: 'B2B electronics marketplace with bulk ordering and custom pricing.',
+      revenue: '$10M+ Annual',
+      orders: '50K+ Monthly',
       image: '/api/placeholder/400/300'
     }
   ];
 
   const pricing = [
     {
-      name: 'UI Design',
-      price: '$1,999',
-      description: 'Visual design for existing wireframes',
+      name: 'Starter Store',
+      price: '$4,999',
+      description: 'Perfect for small businesses starting online',
       features: [
-        'Visual design system',
-        'High-fidelity mockups',
+        'Up to 100 products',
         'Responsive design',
-        'Design documentation',
-        '2 rounds of revisions'
+        'Payment gateway integration',
+        'Basic inventory management',
+        'SSL certificate',
+        '3 months support'
       ]
     },
     {
-      name: 'Complete UX/UI',
-      price: '$4,999',
-      description: 'Full UX research and UI design process',
+      name: 'Professional Store',
+      price: '$12,999',
+      description: 'Complete solution for growing businesses',
       features: [
-        'User research & analysis',
-        'Wireframing & prototyping',
-        'Visual design system',
-        'Usability testing',
-        'Design handoff',
-        'Unlimited revisions'
+        'Unlimited products',
+        'Custom design & branding',
+        'Advanced features',
+        'Multi-payment options',
+        'Shipping integrations',
+        'Analytics & reporting',
+        '6 months support'
       ],
       popular: true
     },
     {
-      name: 'Design System',
-      price: '$7,999',
-      description: 'Comprehensive design system development',
+      name: 'Enterprise Store',
+      price: 'Custom',
+      description: 'Advanced solution for large businesses',
       features: [
-        'Complete design system',
-        'Component library',
-        'Style guide documentation',
-        'Design tokens',
-        'Developer handoff',
-        'Training & support'
+        'Custom functionality',
+        'Multi-vendor capability',
+        'Advanced integrations',
+        'Performance optimization',
+        'Priority support',
+        'Training & documentation',
+        '12 months support'
       ]
     }
   ];
@@ -215,54 +226,51 @@ const UIUXDesignPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
-                UI/UX <span className="text-blue-400">Design</span> Services
+                E-commerce <span className="text-blue-400">Development</span>
               </h1>
               <p className="text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed">
-                Create exceptional user experiences that engage your audience and drive business growth through thoughtful, user-centered design.
+                Build powerful online stores that drive sales and deliver exceptional shopping experiences for your customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Start Design Project <FaArrowRight className="ml-2" />
-                  </Button>
-                </Link>
+                <PopUpForm webbtn={true} />
                 <Link href="/portfolio">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
-                    View Design Portfolio
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:!bg-white hover:!text-blue-900">
+                    View E-commerce Sites
                   </Button>
                 </Link>
               </div>
             </motion.div>
             
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
               <div className="grid grid-cols-2 gap-4">
-                {designTypes.map((type, index) => (
+                {platforms.map((platform, index) => (
                   <motion.div
-                    key={type.name}
+                    key={platform.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
                   >
-                    <div className={`w-12 h-12 ${type.color} rounded-lg flex items-center justify-center mb-4`}>
-                      <type.icon className="w-6 h-6 text-white" />
+                    <div className={`w-12 h-12 ${platform.color} rounded-lg flex items-center justify-center mb-4`}>
+                      <platform.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="font-semibold mb-2 text-sm">{type.name}</h3>
-                    <p className="text-xs text-blue-100">{type.description}</p>
+                    <h3 className="font-semibold mb-2">{platform.name}</h3>
+                    <p className="text-sm text-blue-100">{platform.description}</p>
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
+            <QuickConnectForm />
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -272,17 +280,17 @@ const UIUXDesignPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-blue-600">Design</span> Services
+              E-commerce <span className="text-blue-600">Features</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive UI/UX design services that transform ideas into engaging digital experiences.
+              Comprehensive features that power successful online stores and drive business growth.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
               <motion.div
-                key={service.title}
+                key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -290,18 +298,18 @@ const UIUXDesignPage = () => {
                 <Card className="h-full">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
-                      <service.icon className="w-8 h-8 text-blue-600" />
+                      <feature.icon className="w-8 h-8 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{feature.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <p className="text-gray-600 mb-6">{feature.description}</p>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">What&apos;s Included:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">Includes:</h4>
                     <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
+                      {feature.details.map((detail, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">
                           <FaCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                          {feature}
+                          {detail}
                         </li>
                       ))}
                     </ul>
@@ -313,7 +321,7 @@ const UIUXDesignPage = () => {
         </div>
       </section>
 
-      {/* Design Principles */}
+      {/* E-commerce Types */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -323,27 +331,38 @@ const UIUXDesignPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our Design <span className="text-blue-600">Principles</span>
+              Types of <span className="text-blue-600">E-commerce</span> Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The fundamental principles that guide our design process and ensure exceptional user experiences.
+              We build various types of e-commerce platforms tailored to different business models and industries.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {principles.map((principle, index) => (
+            {ecommerceTypes.map((type, index) => (
               <motion.div
-                key={principle.title}
+                key={type.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="text-center h-full">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <principle.icon className="w-8 h-8 text-blue-600" />
+                    <type.icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{principle.title}</h3>
-                  <p className="text-gray-600">{principle.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{type.title}</h3>
+                  <p className="text-gray-600 mb-6">{type.description}</p>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3">Features:</h4>
+                    <ul className="space-y-2">
+                      {type.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center text-sm text-gray-600">
+                          <FaCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </Card>
               </motion.div>
             ))}
@@ -361,10 +380,10 @@ const UIUXDesignPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our Design <span className="text-blue-600">Process</span>
+              Our Development <span className="text-blue-600">Process</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A structured approach to design that ensures we create solutions that truly meet user needs.
+              A proven methodology that ensures your e-commerce store is optimized for sales and growth.
             </p>
           </motion.div>
 
@@ -390,7 +409,7 @@ const UIUXDesignPage = () => {
                 </div>
                 <div className="flex-1 flex justify-center">
                   <div className="w-64 h-48 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center">
-                    <FaPalette className="w-16 h-16 text-blue-600" />
+                    <FaShoppingCart className="w-16 h-16 text-blue-600" />
                   </div>
                 </div>
               </motion.div>
@@ -399,7 +418,7 @@ const UIUXDesignPage = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Integrations Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -409,10 +428,52 @@ const UIUXDesignPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Featured <span className="text-blue-600">Design</span> Work
+              Third-Party <span className="text-blue-600">Integrations</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Examples of our design work that have delivered exceptional results for our clients.
+              We integrate with popular services to enhance your store&apos;s functionality and streamline operations.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {integrations.map((category, index) => (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{category.name}</h3>
+                  <ul className="space-y-2">
+                    {category.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center text-sm text-gray-600">
+                        <FaCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Successful <span className="text-blue-600">E-commerce</span> Projects
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              E-commerce stores we&apos;ve built that are driving significant revenue and growth for our clients.
             </p>
           </motion.div>
 
@@ -424,65 +485,27 @@ const UIUXDesignPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden group cursor-pointer">
-                  <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      width={400}
-                      height={300}
-                    />
-                  </div>
+                <Card className="overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover mb-4"
+                    width={400}
+                    height={300}
+                  />
                   <div className="text-sm text-blue-600 font-medium mb-2">{project.category}</div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="bg-green-50 p-3 rounded-lg">
-                    <div className="text-sm font-medium text-green-800">Result:</div>
-                    <div className="text-sm text-green-700">{project.metrics}</div>
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t">
+                    <div>
+                      <div className="text-sm text-gray-500">Annual Revenue</div>
+                      <div className="font-semibold text-green-600">{project.revenue}</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Monthly Orders</div>
+                      <div className="font-semibold text-blue-600">{project.orders}</div>
+                    </div>
                   </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tools Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Design <span className="text-blue-600">Tools & Software</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We use industry-leading design tools to create exceptional digital experiences.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {tools.map((toolCategory, index) => (
-              <motion.div
-                key={toolCategory.category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{toolCategory.category}</h3>
-                  <ul className="space-y-2">
-                    {toolCategory.items.map((tool, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-gray-600">
-                        <FaCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                        {tool}
-                      </li>
-                    ))}
-                  </ul>
                 </Card>
               </motion.div>
             ))}
@@ -500,10 +523,10 @@ const UIUXDesignPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Design <span className="text-blue-600">Pricing</span>
+              E-commerce <span className="text-blue-600">Pricing</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Flexible pricing options for UI/UX design projects of different scopes and requirements.
+              Transparent pricing for e-commerce development projects that scale with your business needs.
             </p>
           </motion.div>
 
@@ -553,28 +576,29 @@ const UIUXDesignPage = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Create Amazing User Experiences?
+              Ready to Launch Your Online Store?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let&apos;s design digital experiences that your users will love and that drive your business forward.
+              Let&apos;s build an e-commerce platform that drives sales and grows your business online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                  Start Design Project
+                  Start Your E-commerce Project
                 </Button>
               </Link>
               <Link href="/portfolio">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto !border-white !text-white hover:!bg-white hover:!text-blue-600">
-                  View Design Portfolio
+                  View E-commerce Portfolio
                 </Button>
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
+      <PopUpForm />
     </div>
   );
 };
 
-export default UIUXDesignPage;
+export default EcommerceDevelopmentPage;

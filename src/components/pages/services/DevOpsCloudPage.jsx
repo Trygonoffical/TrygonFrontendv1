@@ -20,6 +20,8 @@ import {
 } from 'react-icons/fa';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
+import QuickConnectForm from '@/components/quickconnect/QuickConnectForm';
+import PopUpForm from '@/components/quickconnect/PopUpForm';
 
 const DevOpsCloudPage = () => {
   const cloudProviders = [
@@ -220,20 +222,16 @@ const DevOpsCloudPage = () => {
                 Accelerate your development cycles and scale your infrastructure with modern DevOps practices and cloud solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Start Cloud Journey <FaArrowRight className="ml-2" />
-                  </Button>
-                </Link>
+              <PopUpForm webbtn={true} />
                 <Link href="/portfolio">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:!bg-white hover:!text-blue-900">
                     View Case Studies
                   </Button>
                 </Link>
               </div>
             </motion.div>
             
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -256,7 +254,8 @@ const DevOpsCloudPage = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
+            <QuickConnectForm />
           </div>
         </div>
       </section>
@@ -579,6 +578,7 @@ const DevOpsCloudPage = () => {
           </motion.div>
         </div>
       </section>
+      <PopUpForm />
     </div>
   );
 };

@@ -64,19 +64,22 @@ const TestimonialsSection = () => {
   if (!isClient) return null;
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-[#030712] relative overflow-hidden">
+       {/* Background Patterns */}
+       <div className="absolute inset-0 bg-[url('/dots.svg')] bg-center opacity-10"></div>
+       
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            What Our <span className="text-blue-600">Clients Say</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Client <span className="text-blue-500">Stories</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about our services.
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Success stories from businesses we've helped transform.
           </p>
         </motion.div>
 
@@ -92,33 +95,31 @@ const TestimonialsSection = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-gray-50 rounded-2xl p-8 lg:p-12 text-center relative"
+                    className="glass rounded-3xl p-8 lg:p-12 text-center relative border border-white/5 bg-white/5"
                   >
-                    <FaQuoteLeft className="text-4xl text-blue-600 mx-auto mb-6" />
+                    <FaQuoteLeft className="text-4xl text-blue-500 mx-auto mb-6 opacity-50" />
 
-                    <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed italic">
+                    <p className="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed italic font-light">
                       &quot;{testimonial.testimonial}&quot;
                     </p>
 
-                    <div className="flex items-center justify-center mb-6">
+                    <div className="flex items-center justify-center mb-6 space-x-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <FaStar key={i} className="w-5 h-5 text-yellow-400 mr-1" />
+                        <FaStar key={i} className="w-5 h-5 text-yellow-500" />
                       ))}
                     </div>
 
                     <div className="flex items-center justify-center">
-                                            <Image 
+                      <Image 
                         src={testimonial.image} 
                         alt={testimonial.name}
                         width={64}
                         height={64}
-                        className="w-16 h-16 rounded-full object-cover mr-4"
+                        className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-blue-500"
                       />
                       <div className="text-left">
-                        <div className="font-bold text-lg text-gray-900">{testimonial.name}</div>
-                        <div className="text-gray-600">{testimonial.position}</div>
-                        <div className="text-blue-600 font-medium">{testimonial.company}</div>
-                        <div className="text-sm text-gray-500 mt-1">Project: {testimonial.project}</div>
+                        <div className="font-bold text-lg text-white">{testimonial.name}</div>
+                        <div className="text-gray-400 text-sm">{testimonial.position}, <span className="text-blue-400">{testimonial.company}</span></div>
                       </div>
                     </div>
                   </motion.div>
@@ -130,15 +131,15 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 lg:-translate-x-16 bg-white/5 border border-white/10 rounded-full p-3 hover:bg-white/10 transition-colors text-white"
           >
-            <FaChevronLeft className="w-5 h-5 text-gray-600" />
+            <FaChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 lg:translate-x-16 bg-white/5 border border-white/10 rounded-full p-3 hover:bg-white/10 transition-colors text-white"
           >
-            <FaChevronRight className="w-5 h-5 text-gray-600" />
+            <FaChevronRight className="w-5 h-5" />
           </button>
 
           {/* Navigation Dots */}
@@ -147,8 +148,8 @@ const TestimonialsSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? 'bg-blue-600 w-8' : 'bg-gray-300'
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentTestimonial ? 'bg-blue-500 w-8' : 'bg-gray-700'
                 }`}
               />
             ))}

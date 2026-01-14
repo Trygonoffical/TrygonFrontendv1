@@ -8,144 +8,21 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaArrowRight, FaEye, FaCalendarAlt } from 'react-icons/fa';
 import Button from '@/components/ui/Button';
-import { Input } from '@/components/ui/Form';
 import { getFeaturedPosts } from '@/data/blogData';
-import supabase from '@/lib/supabase';
 
 const BlogSection = () => {
   const [isClient, setIsClient] = useState(false);
   const [blogPosts, setBlogPosts] = useState([]);
-  const [email, setEmail] = useState('');
-  const [isSubscribing, setIsSubscribing] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
     setBlogPosts(getFeaturedPosts());
   }, []);
 
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    
-    if (!email || !email.includes('@')) {
-      toast.error('Please enter a valid email address', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      return;
-    }
-
-    setIsSubscribing(true);
-    
-    try {
-      // Check if Supabase is properly configured
-      if (!supabase) {
-        console.error('Supabase is not properly configured. Please check your environment variables.');
-        toast.error('Configuration error. Please contact support.', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        setIsSubscribing(false);
-        return;
-      }
-
-      // Check if email already exists
-      const { data: existingSubscriber, error: checkError } = await supabase
-        .from('subscribe')
-        .select('email')
-        .eq('email', email)
-        .single();
-
-      if (checkError && checkError.code !== 'PGRST116') {
-        console.error('Error checking existing subscriber:', checkError);
-        toast.error('There was an error processing your subscription. Please try again.', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        setIsSubscribing(false);
-        return;
-      }
-
-      if (existingSubscriber) {
-        toast.info('You are already subscribed to our newsletter!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        setIsSubscribing(false);
-        return;
-      }
-
-      // Save to Supabase
-      const { data, error } = await supabase
-        .from('subscribe')
-        .insert([
-          {
-            email: email,
-            created_at: new Date().toISOString()
-          }
-        ])
-        .select();
-
-      if (error) {
-        console.error('Error saving subscription:', error);
-        toast.error('There was an error subscribing you. Please try again.', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        setIsSubscribing(false);
-        return;
-      }
-
-      console.log('Subscription saved successfully:', data);
-      toast.success('Successfully subscribed to our newsletter! We\'ll keep you updated with the latest tech insights.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      
-      setIsSubscribing(false);
-      setEmail(''); // Reset form
-      
-    } catch (error) {
-      console.error('Unexpected error:', error);
-      toast.error('There was an unexpected error. Please try again.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      setIsSubscribing(false);
-    }
-  };
-
   if (!isClient) return null;
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -153,11 +30,11 @@ const BlogSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Featured <span className="text-blue-600">Projects</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Insights</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our latest work and see how we&apos;ve helped businesses transform their digital presence
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Trends, strategies, and success stories from the digital world.
           </p>
         </motion.div>
 
@@ -169,55 +46,60 @@ const BlogSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-600 transition-all duration-300 group"
             >
-              <div className="relative">
+              <div className="relative h-48 overflow-hidden">
                 <Image 
                   src={post.image} 
                   alt={post.title} 
                   width={600}
                   height={300}
-                  className="w-full h-48 object-cover" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-blue-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
                     {post.category}
                   </span>
                 </div>
               </div>
 
               <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 mb-3">
-                  <FaCalendarAlt className="w-4 h-4 mr-2" />
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                  <span className="mx-2">•</span>
-                  <FaEye className="w-4 h-4 mr-1" />
-                  <span>{post.readTime}</span>
+                <div className="flex items-center text-xs text-gray-500 mb-4 space-x-4">
+                  <div className="flex items-center">
+                    <FaCalendarAlt className="mr-2" />
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaEye className="mr-2" />
+                    <span>{post.readTime}</span>
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
                   {post.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-gray-400 mb-6 line-clamp-3 text-sm leading-relaxed">
                   {post.excerpt}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.slice(0, 3).map((tag, i) => (
-                    <span key={i} className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                      #{tag}
-                    </span>
-                  ))}
+                <div className="flex flex-wrap gap-2 mb-6">
+                   {post.tags.slice(0, 3).map((tag, i) => (
+                     <span key={i} className="text-[10px] text-gray-400 bg-gray-800 px-2 py-1 rounded border border-gray-700">
+                       #{tag}
+                     </span>
+                   ))}
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">By {post.author}</span>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-800">
+                  <div className="flex items-center space-x-2">
+                     <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                     <span className="text-sm text-gray-400 font-medium">{post.author}</span>
+                  </div>
                   <Link href={`/blog/${post.slug}`}>
-                    <Button variant="outline" size="sm" className="group">
-                      Read More
-                      <FaArrowRight className="ml-2 w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                     <span className="text-blue-400 hover:text-white transition-colors text-sm font-semibold flex items-center">
+                        Read More <FaArrowRight className="ml-2 w-3 h-3" />
+                     </span>
                   </Link>
                 </div>
               </div>
@@ -227,48 +109,13 @@ const BlogSection = () => {
 
         <div className="text-center mt-12">
           <Link href="/blog">
-            <Button size="lg" className="group">
+            <Button variant="outline" className="border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 px-8 py-3 rounded-full">
               View All Articles
-              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
-
-        {/* Newsletter Signup */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center"
-        >
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-            Stay Updated with Latest <span className="text-yellow-300">Tech Insights</span>
-          </h3>
-          <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
-            Get weekly updates on technology trends, development tips, and industry insights delivered to your inbox
-          </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/10 border-white/20 text-white placeholder-white/70"
-              required
-            />
-            <Button 
-              type="submit" 
-              className="whitespace-nowrap"
-              loading={isSubscribing}
-            >
-              {isSubscribing ? 'Subscribing...' : 'Subscribe Now'}
-            </Button>
-          </form>
-        </motion.div> */}
       </div>
-
-      {/* Toast Container */}
-      <ToastContainer />
+      <ToastContainer theme="dark" />
     </section>
   );
 };

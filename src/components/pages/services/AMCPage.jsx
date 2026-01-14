@@ -24,6 +24,8 @@ import {
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { Input, Textarea, Select } from '@/components/ui/Form';
+import QuickConnectForm from '@/components/quickconnect/QuickConnectForm';
+import PopUpForm from '@/components/quickconnect/PopUpForm';
 
 const AMCPage = () => {
   const amcPlans = [
@@ -178,15 +180,17 @@ const AMCPage = () => {
                     <FaArrowRight className="ml-2" />
                   </Button>
                 </Link>
-                <Link href="#contact">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900">
+                
+                {/* <Link href="#contact">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:!bg-white hover:!text-blue-900">
                     Get Custom Quote
                   </Button>
-                </Link>
+                </Link> */}
+                  <PopUpForm webbtn={true} btntxt='Get Custom Quote' />
               </div>
             </motion.div>
             
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -216,7 +220,8 @@ const AMCPage = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+            <QuickConnectForm />
           </div>
         </div>
       </section>
@@ -492,6 +497,7 @@ const AMCPage = () => {
           </motion.div>
         </div>
       </section>
+      <PopUpForm />
     </div>
   );
 };
