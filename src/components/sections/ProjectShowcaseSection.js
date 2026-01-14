@@ -86,7 +86,7 @@ const ProjectShowcaseSection = () => {
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">Works</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Discover how we've transformed businesses through innovative digital solutions.
+            Discover how we&apos;ve transformed businesses through innovative digital solutions.
           </p>
         </motion.div>
 

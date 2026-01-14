@@ -79,7 +79,7 @@ const TestimonialsSection = () => {
             Client <span className="text-blue-500">Stories</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Success stories from businesses we've helped transform.
+            Success stories from businesses we&apos;ve helped transform.
           </p>
         </motion.div>
 

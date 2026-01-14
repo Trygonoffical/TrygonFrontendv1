@@ -46,7 +46,7 @@ const WebMockup = () => (
       transition={{ delay: 0.3 }}
       className="absolute bottom-6 right-6 bg-blue-600 px-4 py-2 rounded-lg shadow-lg text-white font-mono text-xs"
     >
-      <span className="text-blue-200">status:</span> "deployed"
+      <span className="text-blue-200">status:</span> &quot;deployed&quot;
     </motion.div>
   </div>
 );

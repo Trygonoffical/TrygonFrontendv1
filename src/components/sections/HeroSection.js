@@ -123,7 +123,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
                             <FaTimes />
                         </button>
                         <h3 className="text-2xl font-bold text-white mb-2">Get a Quote</h3>
-                        <p className="text-gray-400 mb-6 text-sm">Tell us about your project and we'll get back to you within 24 hours.</p>
+                        <p className="text-gray-400 mb-6 text-sm">Tell us about your project and we&apos;ll get back to you within 24 hours.</p>
                         <form onSubmit={handleSubmit} className="space-y-4">
                              <Input 
                                 name="name" 
